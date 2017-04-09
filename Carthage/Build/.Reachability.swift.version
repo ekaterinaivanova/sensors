@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.3.1\nBuild version 8E1000a",
+  "commitish" : "v3",
+  "iOS" : [
+    {
+      "hash" : "61c0e4abe6e00ae895226326792fde824d062495fc9fe65d7a9d77831493fd5e",
+      "name" : "Reachability"
+    }
+  ]
+}

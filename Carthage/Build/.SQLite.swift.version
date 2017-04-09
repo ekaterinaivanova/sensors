@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.3.1\nBuild version 8E1000a",
+  "commitish" : "0.11.3",
+  "iOS" : [
+    {
+      "hash" : "24e049c9bc2c8f30a30a806aeb67c2f512ad6b1a00e163e6132345670b826fb0",
+      "name" : "SQLite"
+    }
+  ]
+}
