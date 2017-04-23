@@ -11,6 +11,21 @@
 		C24FC3BB1E9A23790068F4DF /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24FC3B81E9A23790068F4DF /* CocoaAsyncSocket.framework */; };
 		C24FC3BC1E9A23790068F4DF /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24FC3B91E9A23790068F4DF /* Reachability.framework */; };
 		C24FC3BD1E9A23790068F4DF /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24FC3BA1E9A23790068F4DF /* SQLite.framework */; };
+		C24FC3C21E9A49270068F4DF /* ClientApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC3C11E9A49270068F4DF /* ClientApi.swift */; };
+		C24FC48C1E9A77EE0068F4DF /* LocalizedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC48B1E9A77EE0068F4DF /* LocalizedLabel.swift */; };
+		C24FC48E1E9A77FE0068F4DF /* LocalizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC48D1E9A77FE0068F4DF /* LocalizedButton.swift */; };
+		C24FC4901E9A780A0068F4DF /* LocalizedBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC48F1E9A780A0068F4DF /* LocalizedBarButton.swift */; };
+		C24FC4921E9A78140068F4DF /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4911E9A78140068F4DF /* Localized.strings */; };
+		C24FC4941EA49B040068F4DF /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4931EA49B040068F4DF /* Globals.swift */; };
+		C24FC4971EA49EB00068F4DF /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4961EA49EB00068F4DF /* NormalCell.xib */; };
+		C24FC49A1EA49F370068F4DF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4991EA49F370068F4DF /* TableViewCell.swift */; };
+		C24FC49C1EA49F950068F4DF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC49B1EA49F950068F4DF /* Styles.swift */; };
+		C24FC49E1EA4A8B30068F4DF /* SubjectExperimentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC49D1EA4A8B30068F4DF /* SubjectExperimentModel.swift */; };
+		C24FC4A11EA4AC240068F4DF /* ExperimentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4A01EA4AC240068F4DF /* ExperimentClient.swift */; };
+		C24FC4A31EA4FCD70068F4DF /* SubjectClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4A21EA4FCD70068F4DF /* SubjectClient.swift */; };
+		C24FC4A61EA513A30068F4DF /* SubjectExperementDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4A51EA513A30068F4DF /* SubjectExperementDetailsViewController.swift */; };
+		C24FC4A91EA541050068F4DF /* DescriptionSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4A81EA541050068F4DF /* DescriptionSelectTableViewCell.swift */; };
+		C24FC4AB1EA5417B0068F4DF /* DescriptionSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4AA1EA5417B0068F4DF /* DescriptionSelectCell.xib */; };
 		C250DDE91E99534200C9A7BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250DDE81E99534200C9A7BE /* AppDelegate.swift */; };
 		C250DDEB1E99534200C9A7BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250DDEA1E99534200C9A7BE /* ViewController.swift */; };
 		C250DDEE1E99534200C9A7BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C250DDEC1E99534200C9A7BE /* Main.storyboard */; };
@@ -24,6 +39,21 @@
 		C24FC3B81E9A23790068F4DF /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		C24FC3B91E9A23790068F4DF /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		C24FC3BA1E9A23790068F4DF /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
+		C24FC3C11E9A49270068F4DF /* ClientApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientApi.swift; sourceTree = "<group>"; };
+		C24FC48B1E9A77EE0068F4DF /* LocalizedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedLabel.swift; sourceTree = "<group>"; };
+		C24FC48D1E9A77FE0068F4DF /* LocalizedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedButton.swift; sourceTree = "<group>"; };
+		C24FC48F1E9A780A0068F4DF /* LocalizedBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedBarButton.swift; sourceTree = "<group>"; };
+		C24FC4911E9A78140068F4DF /* Localized.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localized.strings; sourceTree = "<group>"; };
+		C24FC4931EA49B040068F4DF /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		C24FC4961EA49EB00068F4DF /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
+		C24FC4991EA49F370068F4DF /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C24FC49B1EA49F950068F4DF /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		C24FC49D1EA4A8B30068F4DF /* SubjectExperimentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectExperimentModel.swift; sourceTree = "<group>"; };
+		C24FC4A01EA4AC240068F4DF /* ExperimentClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentClient.swift; sourceTree = "<group>"; };
+		C24FC4A21EA4FCD70068F4DF /* SubjectClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectClient.swift; sourceTree = "<group>"; };
+		C24FC4A51EA513A30068F4DF /* SubjectExperementDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectExperementDetailsViewController.swift; sourceTree = "<group>"; };
+		C24FC4A81EA541050068F4DF /* DescriptionSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionSelectTableViewCell.swift; sourceTree = "<group>"; };
+		C24FC4AA1EA5417B0068F4DF /* DescriptionSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionSelectCell.xib; sourceTree = "<group>"; };
 		C250DDE51E99534200C9A7BE /* Sensors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sensors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C250DDE81E99534200C9A7BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C250DDEA1E99534200C9A7BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,12 +78,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C24FC3B41E996F130068F4DF /* vendors */ = {
+		C24FC3B41E996F130068F4DF /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
 				C24FC3B51E996F8F0068F4DF /* MotionKit.swift */,
 			);
-			name = vendors;
+			name = Vendors;
 			sourceTree = "<group>";
 		};
 		C24FC3B71E9A23790068F4DF /* Frameworks */ = {
@@ -64,6 +94,63 @@
 				C24FC3BA1E9A23790068F4DF /* SQLite.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C24FC3C01E9A490C0068F4DF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC3C11E9A49270068F4DF /* ClientApi.swift */,
+				C24FC4931EA49B040068F4DF /* Globals.swift */,
+				C24FC49B1EA49F950068F4DF /* Styles.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		C24FC48A1E9A77C80068F4DF /* Localized */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4911E9A78140068F4DF /* Localized.strings */,
+				C24FC48F1E9A780A0068F4DF /* LocalizedBarButton.swift */,
+				C24FC48D1E9A77FE0068F4DF /* LocalizedButton.swift */,
+				C24FC48B1E9A77EE0068F4DF /* LocalizedLabel.swift */,
+			);
+			name = Localized;
+			sourceTree = "<group>";
+		};
+		C24FC4951EA49E8C0068F4DF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4A71EA540D20068F4DF /* DescriptionCell */,
+				C24FC4981EA49EE50068F4DF /* NormalCell */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		C24FC4981EA49EE50068F4DF /* NormalCell */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4961EA49EB00068F4DF /* NormalCell.xib */,
+				C24FC4991EA49F370068F4DF /* TableViewCell.swift */,
+			);
+			name = NormalCell;
+			sourceTree = "<group>";
+		};
+		C24FC49F1EA4AC080068F4DF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4A01EA4AC240068F4DF /* ExperimentClient.swift */,
+				C24FC4A21EA4FCD70068F4DF /* SubjectClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		C24FC4A71EA540D20068F4DF /* DescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4A81EA541050068F4DF /* DescriptionSelectTableViewCell.swift */,
+				C24FC4AA1EA5417B0068F4DF /* DescriptionSelectCell.xib */,
+			);
+			name = DescriptionCell;
 			sourceTree = "<group>";
 		};
 		C250DDDC1E99534200C9A7BE = {
@@ -86,10 +173,13 @@
 		C250DDE71E99534200C9A7BE /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
-				C24FC3B41E996F130068F4DF /* vendors */,
+				C24FC49F1EA4AC080068F4DF /* API */,
+				C24FC4951EA49E8C0068F4DF /* Cells */,
+				C24FC48A1E9A77C80068F4DF /* Localized */,
+				C24FC3C01E9A490C0068F4DF /* Core */,
+				C24FC3B41E996F130068F4DF /* Vendors */,
 				C250DDFF1E995E6500C9A7BE /* SubjectExperementSettings */,
 				C250DDE81E99534200C9A7BE /* AppDelegate.swift */,
-				C250DDEA1E99534200C9A7BE /* ViewController.swift */,
 				C250DDEC1E99534200C9A7BE /* Main.storyboard */,
 				C250DDF21E99534200C9A7BE /* Assets.xcassets */,
 				C250DDF41E99534200C9A7BE /* LaunchScreen.storyboard */,
@@ -102,6 +192,9 @@
 		C250DDFF1E995E6500C9A7BE /* SubjectExperementSettings */ = {
 			isa = PBXGroup;
 			children = (
+				C24FC4A51EA513A30068F4DF /* SubjectExperementDetailsViewController.swift */,
+				C250DDEA1E99534200C9A7BE /* ViewController.swift */,
+				C24FC49D1EA4A8B30068F4DF /* SubjectExperimentModel.swift */,
 			);
 			name = SubjectExperementSettings;
 			sourceTree = "<group>";
@@ -167,9 +260,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C24FC4AB1EA5417B0068F4DF /* DescriptionSelectCell.xib in Resources */,
+				C24FC4921E9A78140068F4DF /* Localized.strings in Resources */,
 				C250DDF61E99534200C9A7BE /* LaunchScreen.storyboard in Resources */,
 				C250DDF31E99534200C9A7BE /* Assets.xcassets in Resources */,
 				C250DDEE1E99534200C9A7BE /* Main.storyboard in Resources */,
+				C24FC4971EA49EB00068F4DF /* NormalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,10 +295,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C24FC4A61EA513A30068F4DF /* SubjectExperementDetailsViewController.swift in Sources */,
+				C24FC49C1EA49F950068F4DF /* Styles.swift in Sources */,
+				C24FC4A31EA4FCD70068F4DF /* SubjectClient.swift in Sources */,
+				C24FC48E1E9A77FE0068F4DF /* LocalizedButton.swift in Sources */,
+				C24FC4A11EA4AC240068F4DF /* ExperimentClient.swift in Sources */,
+				C24FC48C1E9A77EE0068F4DF /* LocalizedLabel.swift in Sources */,
+				C24FC4A91EA541050068F4DF /* DescriptionSelectTableViewCell.swift in Sources */,
 				C24FC3B61E996F8F0068F4DF /* MotionKit.swift in Sources */,
+				C24FC4901E9A780A0068F4DF /* LocalizedBarButton.swift in Sources */,
+				C24FC49E1EA4A8B30068F4DF /* SubjectExperimentModel.swift in Sources */,
 				C250DDF11E99534200C9A7BE /* Sensors.xcdatamodeld in Sources */,
+				C24FC49A1EA49F370068F4DF /* TableViewCell.swift in Sources */,
 				C250DDEB1E99534200C9A7BE /* ViewController.swift in Sources */,
+				C24FC3C21E9A49270068F4DF /* ClientApi.swift in Sources */,
 				C250DDE91E99534200C9A7BE /* AppDelegate.swift in Sources */,
+				C24FC4941EA49B040068F4DF /* Globals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
