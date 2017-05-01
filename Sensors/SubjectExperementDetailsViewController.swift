@@ -59,13 +59,14 @@ class SubjectExperementDetailsViewController: UIViewController {
 
         switch(settingType){
         case 0:
-            if let dictionnary : NSDictionary = data[row] as NSDictionary  {
+            if let dictionnary = data[row] as NSDictionary!  {
                 let ID = dictionnary.object(forKey: "ID") as! Int
                 return GlobalVariables.subject == ID
             }
+         
             break
         case 1:
-            if let dictionnary : NSDictionary = data[row] as NSDictionary  {
+            if let dictionnary = data[row] as NSDictionary!  {
                 let ID = dictionnary.object(forKey: "ID") as! Int
                 return GlobalVariables.experiment == ID
             }
@@ -79,13 +80,13 @@ class SubjectExperementDetailsViewController: UIViewController {
     func setSelected(row:Int){
         switch settingType {
         case 0:
-            if let dictionnary : NSDictionary = data[row] as NSDictionary  {
+            if let dictionnary = data[row] as NSDictionary!  {
                 let ID = dictionnary.object(forKey: "ID") as! Int
                 GlobalVariables.subject = ID
             }
             break;
         case 1:
-            if let dictionnary : NSDictionary = data[row] as NSDictionary  {
+            if let dictionnary = data[row] as NSDictionary!  {
                 let ID = dictionnary.object(forKey: "ID") as! Int
                 GlobalVariables.experiment = ID
             }
@@ -138,17 +139,6 @@ class SubjectExperementDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension SubjectExperementDetailsViewController: UITableViewDataSource {

@@ -36,6 +36,24 @@ struct GlobalVariables {
         }
     }
     
+    static var experimentReadable:String{
+        get{
+            if let temp = UserDefaults.standard.string(forKey: "experimentReadable") as String!{
+                
+                return temp
+            }else{
+                UserDefaults.standard.set("Unknown", forKey: "experimentReadable")
+                return "Unknown"
+            }
+        }
+        set{
+            
+            UserDefaults.standard.set(newValue, forKey: "experimentReadable")
+            
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
     static var subject:Int?{
         get{
             let temp = UserDefaults.standard.integer(forKey: "subject")
@@ -46,6 +64,21 @@ struct GlobalVariables {
         set{
             
             UserDefaults.standard.set(newValue, forKey: "subject")
+            
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    static var subjectReadable:String?{
+        get{
+            let temp = UserDefaults.standard.string(forKey: "subjectReadable")
+            
+            return temp
+            
+        }
+        set{
+            
+            UserDefaults.standard.set(newValue, forKey: "subjectReadable")
             
             UserDefaults.standard.synchronize()
         }

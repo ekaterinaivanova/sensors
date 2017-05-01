@@ -69,34 +69,48 @@ class SubjectExperimentModel{
                         if let array = newDictData as?  [[String : AnyObject]]  {
                             if(array.count > 0){
                                 let dataDict = array[0]
-                                print(dataDict)
+
                                 var name = (dataDict as NSDictionary).object(forKey: "FirstName")
                                 let lastname = (dataDict as NSDictionary).object(forKey: "LastName")
                                 if  name != nil{
                                     name = "\(String(describing: name!)) \(String(describing: lastname!))"
+                                    
+                                    GlobalVariables.subjectReadable = name as? String
                                     completion(name as! String)
                                 }else{
+                                    
+                                    GlobalVariables.subjectReadable = "Unknown"
                                     completion("Unknown")
+                                    
                                 }
                             }else{
+                                
+                                GlobalVariables.subjectReadable = "Unknown"
                                 completion("Unknown")
+                                
                             }
                             
                         }else{
+                            
+                            GlobalVariables.subjectReadable = "Unknown"
                             completion("Unknown")
+                            
                         }
                         
                     }else{
+                        GlobalVariables.subjectReadable = "Unknown"
                         completion("Unknown")
                     }
                     
                     
                 })
             }else{
+                GlobalVariables.subjectReadable = "None"
                 completion("None")
             }
             break;
         case 1:
+           
             experimentclient.readExperiment(id: GlobalVariables.experiment, completion: { (success, data) in
                 if let dictionnary : NSDictionary = data {
 
@@ -109,22 +123,35 @@ class SubjectExperimentModel{
                             
                             let name = (dataDict as NSDictionary).object(forKey: "Name")
                             if  name != nil{
+                                
+                                GlobalVariables.experimentReadable = name as! String;
                                 completion(name as! String)
+                                
                             }else{
+                                
+                                GlobalVariables.experimentReadable = "Unknown"
                                 completion("Unknown")
+                                
                             }
                         }else{
+                            
+                            GlobalVariables.experimentReadable = "Unknown"
                             completion("Unknown")
+                            
                         }
                       
                     }else{
+                        
+                        GlobalVariables.experimentReadable = "Unknown"
                         completion("Unknown")
+                        
                     }
                     
                 }else{
+                    
+                    GlobalVariables.experimentReadable = "Unknown"
                     completion("Unknown")
                 }
-                
                 
             })
 

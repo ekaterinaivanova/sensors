@@ -26,6 +26,25 @@
 		C24FC4A61EA513A30068F4DF /* SubjectExperementDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4A51EA513A30068F4DF /* SubjectExperementDetailsViewController.swift */; };
 		C24FC4A91EA541050068F4DF /* DescriptionSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4A81EA541050068F4DF /* DescriptionSelectTableViewCell.swift */; };
 		C24FC4AB1EA5417B0068F4DF /* DescriptionSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4AA1EA5417B0068F4DF /* DescriptionSelectCell.xib */; };
+		C24FC4AE1EB4A2C20068F4DF /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4AD1EB4A2C20068F4DF /* GraphViewController.swift */; };
+		C24FC4B01EB4A37C0068F4DF /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4AF1EB4A37C0068F4DF /* GraphView.swift */; };
+		C24FC4B21EB4C0490068F4DF /* SensorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4B11EB4C0490068F4DF /* SensorModel.swift */; };
+		C24FC4B51EB5F5090068F4DF /* TcpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4B41EB5F5090068F4DF /* TcpClient.swift */; };
+		C24FC4BB1EB5F7B90068F4DF /* UdpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4BA1EB5F7B90068F4DF /* UdpClient.swift */; };
+		C24FC4BD1EB602520068F4DF /* homeSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4BC1EB602520068F4DF /* homeSettingsModel.swift */; };
+		C24FC4BF1EB6086B0068F4DF /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4BE1EB6086B0068F4DF /* ConnectionManager.swift */; };
+		C24FC4C11EB609930068F4DF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4C01EB609930068F4DF /* LocationManager.swift */; };
+		C24FC4C31EB7209D0068F4DF /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4C21EB7209D0068F4DF /* HomeCell.swift */; };
+		C24FC4C61EB721410068F4DF /* HomeRightLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4C51EB721410068F4DF /* HomeRightLabel.xib */; };
+		C24FC4C81EB721B10068F4DF /* HomeLeftLabel.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4C71EB721B10068F4DF /* HomeLeftLabel.xib */; };
+		C24FC4CB1EB732560068F4DF /* photo-abstract-7.png in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4CA1EB732560068F4DF /* photo-abstract-7.png */; };
+		C24FC4CD1EB732620068F4DF /* settings-25.png in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4CC1EB732620068F4DF /* settings-25.png */; };
+		C24FC4D01EB748A90068F4DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4CF1EB748A90068F4DF /* LoginViewController.swift */; };
+		C24FC4D31EB7494C0068F4DF /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4D21EB7494C0068F4DF /* AccountTableViewCell.swift */; };
+		C24FC4D51EB749B20068F4DF /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4D41EB749B20068F4DF /* AccountCell.xib */; };
+		C24FC4D71EB749F50068F4DF /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4D61EB749F50068F4DF /* ButtonCell.xib */; };
+		C24FC4D91EB74AE30068F4DF /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4D81EB74AE30068F4DF /* LoginModel.swift */; };
+		C24FC4DB1EB74C750068F4DF /* LoginClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4DA1EB74C750068F4DF /* LoginClient.swift */; };
 		C250DDE91E99534200C9A7BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250DDE81E99534200C9A7BE /* AppDelegate.swift */; };
 		C250DDEB1E99534200C9A7BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250DDEA1E99534200C9A7BE /* ViewController.swift */; };
 		C250DDEE1E99534200C9A7BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C250DDEC1E99534200C9A7BE /* Main.storyboard */; };
@@ -54,6 +73,26 @@
 		C24FC4A51EA513A30068F4DF /* SubjectExperementDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectExperementDetailsViewController.swift; sourceTree = "<group>"; };
 		C24FC4A81EA541050068F4DF /* DescriptionSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionSelectTableViewCell.swift; sourceTree = "<group>"; };
 		C24FC4AA1EA5417B0068F4DF /* DescriptionSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionSelectCell.xib; sourceTree = "<group>"; };
+		C24FC4AD1EB4A2C20068F4DF /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		C24FC4AF1EB4A37C0068F4DF /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		C24FC4B11EB4C0490068F4DF /* SensorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorModel.swift; sourceTree = "<group>"; };
+		C24FC4B41EB5F5090068F4DF /* TcpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpClient.swift; sourceTree = "<group>"; };
+		C24FC4B71EB5F5E50068F4DF /* Sensors-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sensors-Bridging-Header.h"; sourceTree = "<group>"; };
+		C24FC4BA1EB5F7B90068F4DF /* UdpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpClient.swift; sourceTree = "<group>"; };
+		C24FC4BC1EB602520068F4DF /* homeSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeSettingsModel.swift; sourceTree = "<group>"; };
+		C24FC4BE1EB6086B0068F4DF /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		C24FC4C01EB609930068F4DF /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C24FC4C21EB7209D0068F4DF /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		C24FC4C51EB721410068F4DF /* HomeRightLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeRightLabel.xib; sourceTree = "<group>"; };
+		C24FC4C71EB721B10068F4DF /* HomeLeftLabel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeLeftLabel.xib; sourceTree = "<group>"; };
+		C24FC4CA1EB732560068F4DF /* photo-abstract-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-abstract-7.png"; sourceTree = "<group>"; };
+		C24FC4CC1EB732620068F4DF /* settings-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-25.png"; sourceTree = "<group>"; };
+		C24FC4CF1EB748A90068F4DF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C24FC4D21EB7494C0068F4DF /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		C24FC4D41EB749B20068F4DF /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
+		C24FC4D61EB749F50068F4DF /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		C24FC4D81EB74AE30068F4DF /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		C24FC4DA1EB74C750068F4DF /* LoginClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginClient.swift; sourceTree = "<group>"; };
 		C250DDE51E99534200C9A7BE /* Sensors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sensors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C250DDE81E99534200C9A7BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C250DDEA1E99534200C9A7BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,9 +138,13 @@
 		C24FC3C01E9A490C0068F4DF /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C24FC4BA1EB5F7B90068F4DF /* UdpClient.swift */,
+				C24FC4B41EB5F5090068F4DF /* TcpClient.swift */,
 				C24FC3C11E9A49270068F4DF /* ClientApi.swift */,
 				C24FC4931EA49B040068F4DF /* Globals.swift */,
 				C24FC49B1EA49F950068F4DF /* Styles.swift */,
+				C24FC4BE1EB6086B0068F4DF /* ConnectionManager.swift */,
+				C24FC4C01EB609930068F4DF /* LocationManager.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -120,6 +163,8 @@
 		C24FC4951EA49E8C0068F4DF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C24FC4D11EB7492F0068F4DF /* AccountCells */,
+				C24FC4C41EB721150068F4DF /* HomeCells */,
 				C24FC4A71EA540D20068F4DF /* DescriptionCell */,
 				C24FC4981EA49EE50068F4DF /* NormalCell */,
 			);
@@ -140,6 +185,7 @@
 			children = (
 				C24FC4A01EA4AC240068F4DF /* ExperimentClient.swift */,
 				C24FC4A21EA4FCD70068F4DF /* SubjectClient.swift */,
+				C24FC4DA1EB74C750068F4DF /* LoginClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -151,6 +197,55 @@
 				C24FC4AA1EA5417B0068F4DF /* DescriptionSelectCell.xib */,
 			);
 			name = DescriptionCell;
+			sourceTree = "<group>";
+		};
+		C24FC4AC1EB4A2760068F4DF /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4AD1EB4A2C20068F4DF /* GraphViewController.swift */,
+				C24FC4AF1EB4A37C0068F4DF /* GraphView.swift */,
+				C24FC4B11EB4C0490068F4DF /* SensorModel.swift */,
+				C24FC4BC1EB602520068F4DF /* homeSettingsModel.swift */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
+		C24FC4C41EB721150068F4DF /* HomeCells */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4C71EB721B10068F4DF /* HomeLeftLabel.xib */,
+				C24FC4C51EB721410068F4DF /* HomeRightLabel.xib */,
+				C24FC4C21EB7209D0068F4DF /* HomeCell.swift */,
+			);
+			name = HomeCells;
+			sourceTree = "<group>";
+		};
+		C24FC4C91EB732400068F4DF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4CC1EB732620068F4DF /* settings-25.png */,
+				C24FC4CA1EB732560068F4DF /* photo-abstract-7.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		C24FC4CE1EB7485C0068F4DF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4CF1EB748A90068F4DF /* LoginViewController.swift */,
+				C24FC4D81EB74AE30068F4DF /* LoginModel.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		C24FC4D11EB7492F0068F4DF /* AccountCells */ = {
+			isa = PBXGroup;
+			children = (
+				C24FC4D61EB749F50068F4DF /* ButtonCell.xib */,
+				C24FC4D41EB749B20068F4DF /* AccountCell.xib */,
+				C24FC4D21EB7494C0068F4DF /* AccountTableViewCell.swift */,
+			);
+			name = AccountCells;
 			sourceTree = "<group>";
 		};
 		C250DDDC1E99534200C9A7BE = {
@@ -173,6 +268,9 @@
 		C250DDE71E99534200C9A7BE /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				C24FC4CE1EB7485C0068F4DF /* Login */,
+				C24FC4C91EB732400068F4DF /* Images */,
+				C24FC4AC1EB4A2760068F4DF /* Graph */,
 				C24FC49F1EA4AC080068F4DF /* API */,
 				C24FC4951EA49E8C0068F4DF /* Cells */,
 				C24FC48A1E9A77C80068F4DF /* Localized */,
@@ -185,6 +283,7 @@
 				C250DDF41E99534200C9A7BE /* LaunchScreen.storyboard */,
 				C250DDF71E99534200C9A7BE /* Info.plist */,
 				C250DDEF1E99534200C9A7BE /* Sensors.xcdatamodeld */,
+				C24FC4B71EB5F5E50068F4DF /* Sensors-Bridging-Header.h */,
 			);
 			path = Sensors;
 			sourceTree = "<group>";
@@ -233,6 +332,7 @@
 					C250DDE41E99534200C9A7BE = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 5E2VP4TDPV;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -261,10 +361,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C24FC4AB1EA5417B0068F4DF /* DescriptionSelectCell.xib in Resources */,
+				C24FC4C61EB721410068F4DF /* HomeRightLabel.xib in Resources */,
 				C24FC4921E9A78140068F4DF /* Localized.strings in Resources */,
+				C24FC4D71EB749F50068F4DF /* ButtonCell.xib in Resources */,
+				C24FC4CD1EB732620068F4DF /* settings-25.png in Resources */,
+				C24FC4CB1EB732560068F4DF /* photo-abstract-7.png in Resources */,
 				C250DDF61E99534200C9A7BE /* LaunchScreen.storyboard in Resources */,
+				C24FC4D51EB749B20068F4DF /* AccountCell.xib in Resources */,
 				C250DDF31E99534200C9A7BE /* Assets.xcassets in Resources */,
 				C250DDEE1E99534200C9A7BE /* Main.storyboard in Resources */,
+				C24FC4C81EB721B10068F4DF /* HomeLeftLabel.xib in Resources */,
 				C24FC4971EA49EB00068F4DF /* NormalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,20 +402,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				C24FC4A61EA513A30068F4DF /* SubjectExperementDetailsViewController.swift in Sources */,
+				C24FC4D91EB74AE30068F4DF /* LoginModel.swift in Sources */,
 				C24FC49C1EA49F950068F4DF /* Styles.swift in Sources */,
 				C24FC4A31EA4FCD70068F4DF /* SubjectClient.swift in Sources */,
+				C24FC4BB1EB5F7B90068F4DF /* UdpClient.swift in Sources */,
 				C24FC48E1E9A77FE0068F4DF /* LocalizedButton.swift in Sources */,
 				C24FC4A11EA4AC240068F4DF /* ExperimentClient.swift in Sources */,
+				C24FC4BF1EB6086B0068F4DF /* ConnectionManager.swift in Sources */,
 				C24FC48C1E9A77EE0068F4DF /* LocalizedLabel.swift in Sources */,
+				C24FC4BD1EB602520068F4DF /* homeSettingsModel.swift in Sources */,
 				C24FC4A91EA541050068F4DF /* DescriptionSelectTableViewCell.swift in Sources */,
 				C24FC3B61E996F8F0068F4DF /* MotionKit.swift in Sources */,
 				C24FC4901E9A780A0068F4DF /* LocalizedBarButton.swift in Sources */,
 				C24FC49E1EA4A8B30068F4DF /* SubjectExperimentModel.swift in Sources */,
 				C250DDF11E99534200C9A7BE /* Sensors.xcdatamodeld in Sources */,
+				C24FC4C31EB7209D0068F4DF /* HomeCell.swift in Sources */,
+				C24FC4DB1EB74C750068F4DF /* LoginClient.swift in Sources */,
+				C24FC4B01EB4A37C0068F4DF /* GraphView.swift in Sources */,
+				C24FC4B51EB5F5090068F4DF /* TcpClient.swift in Sources */,
 				C24FC49A1EA49F370068F4DF /* TableViewCell.swift in Sources */,
 				C250DDEB1E99534200C9A7BE /* ViewController.swift in Sources */,
 				C24FC3C21E9A49270068F4DF /* ClientApi.swift in Sources */,
+				C24FC4AE1EB4A2C20068F4DF /* GraphViewController.swift in Sources */,
+				C24FC4C11EB609930068F4DF /* LocationManager.swift in Sources */,
+				C24FC4B21EB4C0490068F4DF /* SensorModel.swift in Sources */,
 				C250DDE91E99534200C9A7BE /* AppDelegate.swift in Sources */,
+				C24FC4D31EB7494C0068F4DF /* AccountTableViewCell.swift in Sources */,
+				C24FC4D01EB748A90068F4DF /* LoginViewController.swift in Sources */,
 				C24FC4941EA49B040068F4DF /* Globals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +554,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5E2VP4TDPV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,6 +564,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dev-sensors";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sensors/Sensors-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -452,6 +574,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5E2VP4TDPV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,6 +584,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "dev-sensors";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sensors/Sensors-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

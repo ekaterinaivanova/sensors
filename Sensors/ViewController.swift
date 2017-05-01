@@ -19,19 +19,39 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableVewTitle: UILabel!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        tableView.dataSource = self 
+        
+        initTableView()
+        initNavigationBar()
+    }
+    
+    func initTableView(){
+        tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView(frame: .zero)
         self.tableView.register(UINib(nibName: "NormalCell", bundle: nil), forCellReuseIdentifier: "normalCell")
+    }
+    
+    func initNavigationBar() {
+        self.navigationItem.title = NSLocalizedString("Select subject and experiment type:", comment: "")
+        let infoButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(ViewController.gotToGraphView))
         
-
+        self.navigationItem.rightBarButtonItem = infoButton
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func gotToGraphView(){
+        self.performSegue(withIdentifier: "showGraph", sender: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
 
@@ -77,13 +97,14 @@ extension ViewController: UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showSubjectDetails"){
+            
         
-        // get a reference to the second view controller
-        let subjectExperementDetailsViewController = segue.destination as! SubjectExperementDetailsViewController
-        
-        // set a variable in the second view controller with the data to pass
-        
-        subjectExperementDetailsViewController.settingType = selectedRow
+            let subjectExperementDetailsViewController = segue.destination as! SubjectExperementDetailsViewController
+    
+            subjectExperementDetailsViewController.settingType = selectedRow
+        }else if(segue.identifier == "showGraph"){
+        }
     }
     
 }

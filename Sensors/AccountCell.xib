@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellTextFieldLabel" rowHeight="70" id="b5H-2s-OUd" customClass="AccountTableViewCell" customModule="Sensors" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b5H-2s-OUd" id="mo4-vt-cE7">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGi-an-EaP">
+                        <rect key="frame" x="8" y="13" width="42" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0QD-8Y-bRb">
+                        <rect key="frame" x="55" y="8" width="257" height="53.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0QD-8Y-bRb" firstAttribute="leading" secondItem="CGi-an-EaP" secondAttribute="trailing" constant="5" id="7F6-Kw-V7m"/>
+                    <constraint firstItem="CGi-an-EaP" firstAttribute="baseline" secondItem="0QD-8Y-bRb" secondAttribute="baseline" id="D3A-1O-BkI"/>
+                    <constraint firstAttribute="topMargin" secondItem="0QD-8Y-bRb" secondAttribute="top" id="El6-ps-uFX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0QD-8Y-bRb" secondAttribute="trailing" id="GMX-gS-Cbt"/>
+                    <constraint firstItem="CGi-an-EaP" firstAttribute="baseline" secondItem="0QD-8Y-bRb" secondAttribute="baseline" id="GhR-g5-v89"/>
+                    <constraint firstItem="0QD-8Y-bRb" firstAttribute="top" secondItem="mo4-vt-cE7" secondAttribute="topMargin" constant="4" id="H6W-uv-qVb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CGi-an-EaP" secondAttribute="bottom" constant="5" id="Ls6-Ah-cQA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CGi-an-EaP" secondAttribute="bottom" constant="8" id="O08-mI-q6t"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="CGi-an-EaP" secondAttribute="leading" id="OKE-tQ-HUf"/>
+                    <constraint firstItem="CGi-an-EaP" firstAttribute="top" secondItem="mo4-vt-cE7" secondAttribute="topMargin" constant="8" id="Qj1-XY-rhe"/>
+                    <constraint firstItem="CGi-an-EaP" firstAttribute="top" secondItem="mo4-vt-cE7" secondAttribute="topMargin" constant="5" id="TIS-Mn-szO"/>
+                    <constraint firstItem="0QD-8Y-bRb" firstAttribute="leading" secondItem="CGi-an-EaP" secondAttribute="trailing" constant="8" symbolic="YES" id="Tvl-Jg-BbA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0QD-8Y-bRb" secondAttribute="bottom" id="W6S-UN-eCh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0QD-8Y-bRb" secondAttribute="bottom" id="bGr-FS-MLQ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0QD-8Y-bRb" secondAttribute="bottom" constant="4" id="bHe-GQ-mis"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="H6W-uv-qVb"/>
+                        <exclude reference="Tvl-Jg-BbA"/>
+                        <exclude reference="W6S-UN-eCh"/>
+                        <exclude reference="bHe-GQ-mis"/>
+                        <exclude reference="D3A-1O-BkI"/>
+                        <exclude reference="GhR-g5-v89"/>
+                        <exclude reference="O08-mI-q6t"/>
+                        <exclude reference="Qj1-XY-rhe"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label" destination="CGi-an-EaP" id="MpK-jt-kNk"/>
+                <outlet property="textField" destination="0QD-8Y-bRb" id="9D0-8f-irb"/>
+            </connections>
+            <point key="canvasLocation" x="254" y="-14"/>
+        </tableViewCell>
+    </objects>
+</document>

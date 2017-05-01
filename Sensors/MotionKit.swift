@@ -165,7 +165,7 @@ import CoreMotion
      *   attitudeReferenceFrame to determine this. You can access the retrieved values either by a
      *   Trailing Closure or through a Delegate.
      */
-    public func getDeviceMotionObject (_ interval: TimeInterval = 0.1, values: ((_ deviceMotion: CMDeviceMotion) -> ())? ) {
+    public func getDeviceMotionObject (_ interval: TimeInterval = GlobalVariables.speed, values: ((_ deviceMotion: CMDeviceMotion) -> ())? ) {
         
         if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
