@@ -12,7 +12,7 @@ struct GlobalVariables {
     
     static var coordinates = String()
     
-    static var sessionID = Int()
+    static var sessionID:Int = 0
     
     static var MIN_SLIDER_VALUE:Float{ return 0.001 }
     
@@ -32,6 +32,21 @@ struct GlobalVariables {
             
             UserDefaults.standard.set(newValue, forKey: "experiment")
     
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    static var loginID:Int?{
+        get{
+            if let temp = UserDefaults.standard.integer(forKey: "loginId") as Int!{
+                
+                return temp
+            }
+        }
+        set{
+            
+            UserDefaults.standard.set(newValue, forKey: "loginId")
+            
             UserDefaults.standard.synchronize()
         }
     }
@@ -256,12 +271,12 @@ struct GlobalVariables {
     
     static var loggedIn:Bool{
         get{
-            if  GlobalVariables.sessionID == 0{
-                return false
-            }
+          
             if let lvTemp =  UserDefaults.standard.bool(forKey: "isUserLoggedIn") as Bool? {
+
                 return lvTemp
             }
+
             UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
             UserDefaults.standard.synchronize()
             return false

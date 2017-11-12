@@ -17,13 +17,13 @@ class ApiClent {
         if let params = params {
             var paramString = ""
             for (key, value) in params {
-                
+
                 let escapedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 
-                
                 let escapedValue = value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 
-                paramString += "\(String(describing: escapedKey))=\(String(describing: escapedValue))&"
+                paramString += "\(String(describing: escapedKey!))=\(String(describing: escapedValue!))&"
+
             }
             
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

@@ -63,7 +63,6 @@ class ConnectionManager{
     init(){
         
         setupReachability()
-        print("")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.change(_:)), name: ReachabilityChangedNotification, object: reachability)
 

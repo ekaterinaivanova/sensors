@@ -130,7 +130,7 @@ class GraphViewController: UIViewController {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         for (index, title) in titles.enumerated() {
-            print(title, index)
+
             alert.addAction(UIAlertAction(title: title, style: UIAlertActionStyle.default, handler: actions[index]))
             
         }
@@ -341,23 +341,19 @@ class GraphViewController: UIViewController {
         
     }
     
+    
     func setNotifications(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(GraphViewController.reloadSettingsTable), name: NSNotification.Name(rawValue: HomeModelChangedNotification), object: homeModel)
 
         NotificationCenter.default.addObserver(self, selector:#selector(GraphViewController.stopAllUpdates), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(GraphViewController.cloudConChange), name: NSNotification.Name(rawValue: CloudConnectionChangedNotification), object: nil)
-//        
-//        NotificationCenter.default.addObserver(self, selector: #selector(GraphViewController.localConChange), name: NSNotification.Name(rawValue: LocalConnectionChangedNotification), object: nil)
-//        
+
         NotificationCenter.default.addObserver(self, selector: #selector(GraphViewController.appDidBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     
     }
     
     func appDidBecomeActive(){
         
-        print("appDidBecomeActive")
         udpClientLocal = Client(type: 0)
         udpClientCloud = Client(type: 1)
         
@@ -433,7 +429,6 @@ extension GraphViewController: UITableViewDelegate {
         switch (indexPath as NSIndexPath).row{
             
         case 0:
-            print("option to login/logout")
             tableViewLoginClicked()
         default: break
             

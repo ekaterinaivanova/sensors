@@ -79,7 +79,6 @@ class Client: NSObject, GCDAsyncUdpSocketDelegate {
         
         do {
             
-            print(socket.isConnected())
             let jsonData = try JSONSerialization.data(withJSONObject: message, options: JSONSerialization.WritingOptions.prettyPrinted)
             socket.send(jsonData, withTimeout: 2, tag: 0)
             

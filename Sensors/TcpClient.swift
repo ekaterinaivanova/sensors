@@ -40,7 +40,6 @@ class TCPClient: NSObject, GCDAsyncSocketDelegate {
             
         }
         socket.write(data!, withTimeout: 5, tag: 0)
-        print("\(socket.isConnected)")
     }
     
     func send(_ message:NSDictionary){

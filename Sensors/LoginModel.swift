@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class LoginModel{
     let dataLabels = ["Email","Password"]
@@ -56,10 +57,16 @@ class LoginModel{
 //                    })
                 }
             }else{
-                let user = ["Email":self.data[0], "Password": self.data[1]]
+                let user = ["Email":self.data[0], "Password": self.data[1],"PhoneName": UIDevice.current.name, "PhoneID": UIDevice.current.identifierForVendor!.uuidString]
                 
                 client.login(user: user as NSDictionary, completion: { (status, result) in
-                    print(status, result! )
+                    if let dictionnary : NSDictionary = result {
+                        let readableStatus = dictionnary.object(forKey: "status") as! String
+                        
+                        emitdataHandler(readableStatus)
+                        
+                    }
+
                 })
 
             }

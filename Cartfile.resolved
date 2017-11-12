@@ -1,3 +1,3 @@
-github "ashleymills/Reachability.swift" "v3"
-github "robbiehanson/CocoaAsyncSocket" "53a1298f4bbb735a1e7ab235f6e74cf099a1583b"
-github "stephencelis/SQLite.swift" "0.11.3"
+github "ashleymills/Reachability.swift" "v3.0"
+github "robbiehanson/CocoaAsyncSocket" "a5cd1b7627ba74507cc46f0e16240dec2775eeb6"
+github "stephencelis/SQLite.swift" "0.11.4"

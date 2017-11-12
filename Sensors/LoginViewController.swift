@@ -10,8 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, AccountTableViewCellDelegete {
     
-    
     func buttonWasTapped(_ parentCell: AccountTableViewCell){}
+    
+    
+    @IBOutlet weak var verticallDistanceToTop: NSLayoutConstraint!
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -25,7 +27,11 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
         configureKeyboard()
         configureNavigationBar()
         
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+ 
     }
     
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
@@ -33,7 +39,7 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
         if ConnectionManager.sharedInstance.reachability!.isReachable{
             //            //////////////////////////
             self.loginModel.sendData { (result) -> Void in
-                print("gvLoginButtonTapped \(result!)")
+
                 if let lvRes = result! as String?{
                     switch lvRes{
                     case "UDNE":
@@ -61,12 +67,10 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func loopThroughCells(){
         let rowCount = tableView.numberOfRows(inSection: 0)
-        //            let list = [TableViewCell]()
         
         for index in 0 ..< rowCount {
             let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! AccountTableViewCell
@@ -75,10 +79,22 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
         }
         
     }
-    func configureNavigationBar(){
-        self.navigationItem.title = "Login"
+    
+    func showRegisterView(){
+        self.performSegue(withIdentifier: "showRegister", sender: self)
     }
     
+    func configureNavigationBar(){
+
+        self.navigationItem.title = NSLocalizedString("Login", tableName: "Localized", comment: "")
+        
+        let loginButton = UIBarButtonItem(title: NSLocalizedString("Login", tableName: "Localized", comment: ""), style: .plain, target: self, action: #selector(LoginViewController.loginButtonTapped))
+        
+        let registerButton = UIBarButtonItem(image: UIImage(named: "ic_person_add.png")!, style: .plain, target: self, action: #selector(LoginViewController.showRegisterView))
+        
+        self.navigationItem.rightBarButtonItems = [loginButton, registerButton]
+    }
+
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -105,7 +121,7 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
         view.addGestureRecognizer(tap)
     }
     
-    //    textField delegate
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeText = textField
     }
@@ -198,10 +214,10 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
     }
     
     func textfieldTextWasChanged(_ newText: String, parentCell: AccountTableViewCell) {
+        
         let parentCellIndexPath = tableView.indexPath(for: parentCell)
         
         loginModel.setDataAtIndex((parentCellIndexPath! as NSIndexPath).row, data: (parentCell.textField.text as String?)!)
-        print("parentCellIndexPath \(String(describing: parentCellIndexPath))")
         
     }
     
