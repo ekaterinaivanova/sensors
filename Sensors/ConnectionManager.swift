@@ -64,7 +64,7 @@ class ConnectionManager{
         
         setupReachability()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.change(_:)), name: ReachabilityChangedNotification, object: reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.change(_:)), name: Notification.Name.reachabilityChanged, object: reachability)
 
     }
 }

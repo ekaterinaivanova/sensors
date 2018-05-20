@@ -53,6 +53,7 @@ class HomeSettingsModel:NSObject{
         case 7:
             return "Local connection: \(GlobalVariables.IPlocal):\(GlobalVariables.Portlocal). \(GlobalVariables.LANProtocol) "
         case 8:
+            print(GlobalVariables.self)
             return "Subject: \(String(describing: GlobalVariables.subjectReadable!))"
         case 9:
             return "Experiment: \(GlobalVariables.experimentReadable)"
