@@ -13,7 +13,7 @@ class ApiClent {
     
     func clientURLRequest(path: String, params: Dictionary<String, AnyObject>? = nil) -> NSMutableURLRequest {
 
-        let request = NSMutableURLRequest(url: NSURL(string: "http://lkn-r6.fe.uni-lj.si:8484/"+path)! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.0.102:8484/"+path)! as URL)
         if let params = params {
             var paramString = ""
             for (key, value) in params {
@@ -56,7 +56,7 @@ class ApiClent {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         
         session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
-            
+//            print("Response is", response as Any, "DATA", data as Any, "ERROR", error!)
             if let data = data {
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {

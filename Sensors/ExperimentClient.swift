@@ -11,9 +11,7 @@ import Foundation
 class ExperimentClient{
     var api = ApiClent.init()
 
-    func listExperiments(completion: @escaping (_ success: Bool, _ message: NSDictionary?) -> ()) {
-        
-        
+    func listExperiments(completion: @escaping (_ success: Bool, _ message: NSDictionary?) -> ()) {        
         api.get(request: api.clientURLRequest(path: "experiments")) { (success, object) -> () in
             DispatchQueue.main.async(execute: { () -> Void in
                 if success {

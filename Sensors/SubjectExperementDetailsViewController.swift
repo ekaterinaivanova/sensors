@@ -59,14 +59,14 @@ class SubjectExperementDetailsViewController: UIViewController {
 
         switch(settingType){
         case 0:
-            if let dictionnary = data[row] as NSDictionary!  {
+            if let dictionnary = data[row] as NSDictionary?  {
                 let ID = dictionnary.object(forKey: "ID") as! Int
                 return GlobalVariables.subject == ID
             }
          
             break
         case 1:
-            if let dictionnary = data[row] as NSDictionary!  {
+            if let dictionnary = data[row] as NSDictionary?  {
                 let ID = dictionnary.object(forKey: "ID") as! Int
                 return GlobalVariables.experiment == ID
             }
@@ -80,17 +80,16 @@ class SubjectExperementDetailsViewController: UIViewController {
     func setSelected(row:Int){
         switch settingType {
         case 0:
-            if let dictionnary = data[row] as NSDictionary!  {
+            if let dictionnary = data[row] as NSDictionary?  {
                 let ID = dictionnary.object(forKey: "ID") as! Int
                 GlobalVariables.subject = ID
             }
             break;
         case 1:
-            if let dictionnary = data[row] as NSDictionary!  {
+            if let dictionnary = data[row] as NSDictionary?  {
                 let ID = dictionnary.object(forKey: "ID") as! Int
                 GlobalVariables.experiment = ID
             }
-            
             break;
         default:
             break;

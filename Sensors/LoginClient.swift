@@ -14,9 +14,7 @@ class LoginClient{
     
     func logout() {
         api.put(request: api.clientURLRequest(path:  "user-login/\(String(describing: GlobalVariables.loginID))")){
-            (success, object) -> () in
-            
-            print(success, object);
+            (success, object) -> () in            
             GlobalVariables.loggedIn = false;
             
             NotificationCenter.default.post(name: Notification.Name(rawValue: "LoginStatusChanged"), object:self)

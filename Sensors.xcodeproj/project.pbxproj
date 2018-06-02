@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C22E1CDF1F5AB03E00B6E786 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E1CDE1F5AB03E00B6E786 /* SettingsViewController.swift */; };
 		C22E1CE21F5AB58400B6E786 /* CellDescriptor.plist in Resources */ = {isa = PBXBuildFile; fileRef = C22E1CE11F5AB58400B6E786 /* CellDescriptor.plist */; };
+		C24F0D8B20C2A22200E3CE59 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F0D8A20C2A22200E3CE59 /* CustomCell.swift */; };
+		C24F0D8D20C2A3FB00E3CE59 /* TextfieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24F0D8C20C2A3FB00E3CE59 /* TextfieldCell.xib */; };
 		C24FC3B61E996F8F0068F4DF /* MotionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC3B51E996F8F0068F4DF /* MotionKit.swift */; };
 		C24FC3BB1E9A23790068F4DF /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24FC3B81E9A23790068F4DF /* CocoaAsyncSocket.framework */; };
 		C24FC3BC1E9A23790068F4DF /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24FC3B91E9A23790068F4DF /* Reachability.framework */; };
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		C22E1CDE1F5AB03E00B6E786 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C22E1CE11F5AB58400B6E786 /* CellDescriptor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CellDescriptor.plist; sourceTree = "<group>"; };
+		C24F0D8A20C2A22200E3CE59 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		C24F0D8C20C2A3FB00E3CE59 /* TextfieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextfieldCell.xib; sourceTree = "<group>"; };
 		C24FC3B51E996F8F0068F4DF /* MotionKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionKit.swift; sourceTree = "<group>"; };
 		C24FC3B81E9A23790068F4DF /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		C24FC3B91E9A23790068F4DF /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
@@ -147,6 +151,15 @@
 			name = SettingCells;
 			sourceTree = "<group>";
 		};
+		C24F0D8920C2A1E500E3CE59 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				C24F0D8C20C2A3FB00E3CE59 /* TextfieldCell.xib */,
+				C24F0D8A20C2A22200E3CE59 /* CustomCell.swift */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
 		C24FC3B41E996F130068F4DF /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +206,7 @@
 		C24FC4951EA49E8C0068F4DF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C24F0D8920C2A1E500E3CE59 /* CustomCell */,
 				C22E1CE01F5AB55F00B6E786 /* SettingCells */,
 				C24FC4D11EB7492F0068F4DF /* AccountCells */,
 				C24FC4C41EB721150068F4DF /* HomeCells */,
@@ -371,7 +385,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Ekaterina Ivanova";
 				TargetAttributes = {
 					C250DDE41E99534200C9A7BE = {
@@ -416,6 +430,7 @@
 				C24FC4D51EB749B20068F4DF /* AccountCell.xib in Resources */,
 				C250DDF31E99534200C9A7BE /* Assets.xcassets in Resources */,
 				C250DDEE1E99534200C9A7BE /* Main.storyboard in Resources */,
+				C24F0D8D20C2A3FB00E3CE59 /* TextfieldCell.xib in Resources */,
 				C24FC4C81EB721B10068F4DF /* HomeLeftLabel.xib in Resources */,
 				C271C13B1EB8B8E5002A6343 /* ic_person_add.png in Resources */,
 				C24FC4971EA49EB00068F4DF /* NormalCell.xib in Resources */,
@@ -451,6 +466,7 @@
 			files = (
 				C24FC4A61EA513A30068F4DF /* SubjectExperementDetailsViewController.swift in Sources */,
 				C24FC4D91EB74AE30068F4DF /* LoginModel.swift in Sources */,
+				C24F0D8B20C2A22200E3CE59 /* CustomCell.swift in Sources */,
 				C22E1CDF1F5AB03E00B6E786 /* SettingsViewController.swift in Sources */,
 				C24FC49C1EA49F950068F4DF /* Styles.swift in Sources */,
 				C24FC4A31EA4FCD70068F4DF /* SubjectClient.swift in Sources */,
@@ -517,15 +533,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -568,15 +592,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

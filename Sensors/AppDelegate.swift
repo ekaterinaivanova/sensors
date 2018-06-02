@@ -42,8 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let user = ["Email":GlobalVariables.email, "Password": GlobalVariables.password,"PhoneName": UIDevice.current.name, "PhoneID": UIDevice.current.identifierForVendor!.uuidString]
         
         loginClient.login(user: user as NSDictionary, completion: { (status, result) in
-            print(status, result)
-            
+ 
         })
     }
 
