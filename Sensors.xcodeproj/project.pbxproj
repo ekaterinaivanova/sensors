@@ -328,6 +328,7 @@
 		C250DDE71E99534200C9A7BE /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				C2C65BDB20F2B4C9009AF0B3 /* ForgotPassword */,
 				C2C65BD620F28EAC009AF0B3 /* Account */,
 				C20346B81EDDD406001BA0C3 /* Settings */,
 				C2D83EA41EBDCEA400F30A63 /* Register */,
@@ -377,6 +378,13 @@
 				C2C65BD920F28F25009AF0B3 /* AccountModel.swift */,
 			);
 			name = Account;
+			sourceTree = "<group>";
+		};
+		C2C65BDB20F2B4C9009AF0B3 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		C2D83EA41EBDCEA400F30A63 /* Register */ = {

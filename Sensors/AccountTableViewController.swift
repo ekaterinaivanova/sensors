@@ -170,11 +170,11 @@ class AccountTableViewController: UITableViewController {
         myAlert.addAction(UIAlertAction(title: cancelString, style: .default, handler:nil))
         myAlert.addAction(UIAlertAction(title: loginString, style: .default, handler: {
             action in
-            self.performSegue(withIdentifier: "login", sender: self)
+            self.performSegue(withIdentifier: "showLogin", sender: self)
         }))
         myAlert.addAction(UIAlertAction(title: registerString, style: .default, handler: {
             action in
-            self.performSegue(withIdentifier: "register", sender: self)
+            self.performSegue(withIdentifier: "showRegister", sender: self)
         }))
                 
         OperationQueue.main.addOperation {
@@ -380,9 +380,9 @@ extension AccountTableViewController:AccountTableViewCellDelegete{
             }
         }else{ // if is not logged in
             if (parentCellIndexPath! as NSIndexPath).row == 0{
-                self.performSegue(withIdentifier: "login", sender: self)
+                self.performSegue(withIdentifier: "showLogin", sender: self)
             }else if (parentCellIndexPath! as NSIndexPath).row == 1{
-                self.performSegue(withIdentifier: "register", sender: self)
+                self.performSegue(withIdentifier: "showRegister", sender: self)
             }else{
                 print("New Password request")
                 self.performSegue(withIdentifier: "forgotpassword", sender: self)
