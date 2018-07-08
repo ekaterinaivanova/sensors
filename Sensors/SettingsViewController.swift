@@ -13,20 +13,14 @@ public let LocalConnectionChangedNotification = "LocalConnectionChangedNotificat
 public let CloudConnectionChangedNotification = "CloudConnectionChangedNotification"
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
-    
+ 
     @IBOutlet weak var tblExpandable: UITableView!
     var cellDescriptors: NSMutableArray!
     var visibleRowsPerSection = [[Int]]()
-    
-    func dateWasSelected(_ selectedDateString: String) {
-        let dateCellSection = 0
-        let dateCellRow = 3
-        
-        ((cellDescriptors[dateCellSection] as! NSMutableArray)[dateCellRow] as AnyObject).setValue(selectedDateString, forKey: "primaryTitle")
-        tblExpandable.reloadData()
-    }
+//    var datypes = DataTpeModel()
     
     func textfieldTextWasChanged(_ newText: String, parentCell: CustomCell) {
+        print("CHange happened")
         let parentCellIndexPath = tblExpandable.indexPath(for: parentCell)
         if (parentCellIndexPath as NSIndexPath?)?.section == 0{
             if (parentCellIndexPath as NSIndexPath?)?.row == 1 {
@@ -50,8 +44,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             NotificationCenter.default.post(name: Notification.Name(rawValue: LocalConnectionChangedNotification), object:self)
         }else{
             if let newSpeed = Double(newText){
-                ((cellDescriptors[3] as! NSMutableArray)[0] as AnyObject).setValue("\(newSpeed)", forKey: "primaryTitle")
-                ((cellDescriptors[3] as! NSMutableArray)[0] as AnyObject).setValue("\(newSpeed)", forKey: "value")
+                ((cellDescriptors[2] as! NSMutableArray)[0] as AnyObject).setValue("\(newSpeed)", forKey: "primaryTitle")
+                ((cellDescriptors[2] as! NSMutableArray)[0] as AnyObject).setValue("\(newSpeed)", forKey: "value")
                 GlobalVariables.speed = newSpeed
             }
             
@@ -62,58 +56,149 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tblExpandable.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let currentCellDescriptor = getCellDescriptorForIndexPath(indexPath)
+        
+        switch currentCellDescriptor["cellIdentifier"] as! String {
+        case "idCellNormal":
+            return 60.0
+        case "idCellDatePicker":
+            return 270.0
+        case "idCellTextfield":
+            return 50.0
+        default:
+            return 44.0
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return visibleRowsPerSection[section].count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Cloud connection"
+        case 1:
+            return "Local connection"
+        case 2:
+            return "Sampling interval"
+        case 3:
+            return "Account"
+        default:
+            return ""
+        }
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentCellDescriptor = getCellDescriptorForIndexPath(indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: currentCellDescriptor["cellIdentifier"] as! String, for: indexPath) as! CustomCell
-        print(currentCellDescriptor["cellIdentifier"] as! String)
+        let identifier = currentCellDescriptor["cellIdentifier"] as! String
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
         if currentCellDescriptor["cellIdentifier"] as! String == "normalCell" {
             
             if let primaryTitle = currentCellDescriptor["primaryTitle"] {
-                cell.ncTextLabel!.text = primaryTitle as? String
+                (cell as! NormalCell).textLabel!.text = primaryTitle as? String
             }
             
             if let secondaryTitle = currentCellDescriptor["secondaryTitle"] {
-                cell.detailTextLabel?.text = secondaryTitle as? String
+                (cell as! NormalCell).detailTextLabel?.text = secondaryTitle as? String
             }
         }
         else if currentCellDescriptor["cellIdentifier"] as! String == "idCellTextfield" {
             
             
             if currentCellDescriptor["itemID"] as! String == "IP"{
-                cell.textField.text = GlobalVariables.IP
+                (cell as! CustomCell).textField.text = GlobalVariables.IP
             }else if currentCellDescriptor["itemID"] as! String == "PORT"{
-                cell.textField.text = GlobalVariables.port
+                 (cell as! CustomCell).textField.text = GlobalVariables.port
             }else if currentCellDescriptor["itemID"] as! String == "PORTlocal"{
-                cell.textField.text = GlobalVariables.Portlocal
+                 (cell as! CustomCell).textField.text = GlobalVariables.Portlocal
             }else if currentCellDescriptor["itemID"] as! String == "IPlocal"{
-                cell.textField.text = GlobalVariables.IPlocal
+                 (cell as! CustomCell).textField.text = GlobalVariables.IPlocal
             }else if currentCellDescriptor["itemID"] as! String == "speedSlider"{
                 //                cell.textField.keyboardType = UIKeyboardType.NumberPad
-                cell.textField.text = "\(GlobalVariables.speed)"
+                 (cell as! CustomCell).textField.text = "\(GlobalVariables.speed)"
             }
-            //
-            cell.ncTextLabel.text = currentCellDescriptor["primaryTitle"] as? String
+            (cell as! CustomCell).ncTextLabel.text = currentCellDescriptor["primaryTitle"] as? String
+            (cell as! CustomCell).delegate = self
+
         }
-        else if currentCellDescriptor["cellIdentifier"] as! String == "idCellSwitch" {
-            cell.lblSwitchLabel.text = currentCellDescriptor["primaryTitle"] as? String
-            
-            let value = currentCellDescriptor["value"] as? String
-            cell.swSwitchStatus.isOn = (value == "true") ? true : false
-        }
+//        else if currentCellDescriptor["cellIdentifier"] as! String == "idCellSwitch" {
+//            cell.lblSwitchLabel.text = currentCellDescriptor["primaryTitle"] as? String
+//
+//            let value = currentCellDescriptor["value"] as? String
+//            cell.swSwitchStatus.isOn = (value == "true") ? true : false
+//        }
         else if currentCellDescriptor["cellIdentifier"] as! String == "idCellValuePicker" {
             cell.textLabel?.text = currentCellDescriptor["primaryTitle"] as? String
         }
-        else if currentCellDescriptor["cellIdentifier"] as! String == "idCellSlider" {
-            cell.slSamplingInterval.value = GlobalVariables.sliderPosition
-        }
-        cell.delegate = self
+//        else if currentCellDescriptor["cellIdentifier"] as! String == "idCellSlider" {
+//            cell.slSamplingInterval.value = GlobalVariables.sliderPosition
+//        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexOfTappedRow = visibleRowsPerSection[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
+        let checkCell = ((cellDescriptors[indexPath.section]as! NSMutableArray)[indexOfTappedRow] as AnyObject)
+        if checkCell["isExpandable"] as! Bool == true {
+            var shouldExpandAndShowSubRows = false
+            if checkCell["isExpanded"] as! Bool == false {
+                shouldExpandAndShowSubRows = true
+            }
+
+            ((cellDescriptors[indexPath.section] as! NSMutableArray)[indexOfTappedRow] as AnyObject).setValue(shouldExpandAndShowSubRows, forKey: "isExpanded")
+
+            for i in (indexOfTappedRow + 1)...(indexOfTappedRow + (checkCell["additionalRows"] as! Int)) {
+
+                ((cellDescriptors[indexPath.section]  as! NSMutableArray)[i] as AnyObject).setValue(shouldExpandAndShowSubRows, forKey: "isVisible")
+
+            }
+
+        } else {
+            if checkCell["cellIdentifier"] as! String == "idCellValuePicker" {
+                var indexOfParentCell: Int!
+                for  i in (0...indexOfTappedRow - 1).reversed(){
+                    if ((cellDescriptors[indexPath.section]as! NSMutableArray)[i] as AnyObject)["isExpandable"] as! Bool == true {
+                        indexOfParentCell = i
+                        break
+                    }
+
+                }
+                ((cellDescriptors[indexPath.section] as! NSMutableArray)[indexOfParentCell!] as AnyObject).setValue((tblExpandable.cellForRow(at: indexPath) as! ValuePickerCell).textLabel?.text, forKey: "primaryTitle")
+
+
+                if checkCell["itemID"] as! String == "standardData" || checkCell["itemID"] as! String == "testData"{
+//                    gvDataType.gvSelectedSensorIndex = (indexPath as NSIndexPath).row - 1
+//
+//
+                } else if checkCell["itemID"]! as! String == "tcpCloud" || checkCell["itemID"]! as! String == "udpCloud"{
+//
+                    GlobalVariables.cloudProtocol = checkCell["primaryTitle"]! as! String
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: CloudConnectionChangedNotification), object:self)
+
+                }else{
+                    GlobalVariables.LANProtocol = checkCell["primaryTitle"]! as! String
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: LocalConnectionChangedNotification), object:self)
+
+
+                }
+                ((cellDescriptors[indexPath.section] as! NSMutableArray)[indexOfTappedRow] as AnyObject).setValue(false, forKey: "isExpanded")
+
+                for i in (indexOfParentCell! + 1)...(indexOfParentCell! + (((cellDescriptors[indexPath.section]as! NSMutableArray)[indexOfParentCell!] as AnyObject)["additionalRows"] as! Int)) {
+                    ((cellDescriptors[indexPath.section] as! NSMutableArray)[i] as AnyObject).setValue(false, forKey: "isVisible")
+
+                }
+            }else if checkCell["itemID"] as! String == "account"{
+                performSegue(withIdentifier: "toAccountData", sender: self)
+
+            }
+        }
+
+        getIndicesOfVisibleRows()
+
+        tblExpandable.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableViewRowAnimation.fade)
     }
     
     func getCellDescriptorForIndexPath(_ indexPath: IndexPath) -> [String: AnyObject] {
@@ -146,7 +231,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     func getIndicesOfVisibleRows() {
         visibleRowsPerSection.removeAll()
-        
         for currentSectionCells in cellDescriptors.objectEnumerator().allObjects as! [[[String:Any]]]{
             var visibleRows = [Int]()
             
@@ -156,7 +240,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
             visibleRowsPerSection.append(visibleRows)
-            
         }
         
         for currentSectionCells in cellDescriptors {
@@ -165,7 +248,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             for row in 0...((currentSectionCells as! [[String: AnyObject]]).count - 1) {
                 
                 let checkCell = ((currentSectionCells as! NSMutableArray)[row] as AnyObject)
-                
                 if checkCell["isVisible"] as! Bool == true {
                     
                     visibleRows.append(row)
@@ -185,7 +267,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tblExpandable.register(UINib(nibName: "DatePickerCell", bundle: nil), forCellReuseIdentifier: "idCellDatePicker")
         tblExpandable.register(UINib(nibName: "SwitchCell", bundle: nil), forCellReuseIdentifier: "idCellSwitch")
         tblExpandable.register(UINib(nibName: "ValuePickerCell", bundle: nil), forCellReuseIdentifier: "idCellValuePicker")
-        //        tblExpandable.registerNib(UINib(nibName: "SliderCell", bundle: nil), forCellReuseIdentifier: "idCellSlider")
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if cellDescriptors != nil {
+            return cellDescriptors.count
+        } else {
+            return 0
+        }
     }
     
     func loadCellDescriptors() {
@@ -198,6 +287,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         for section in 0..<cellDescriptors.count{
             for row in 0..<(cellDescriptors[section] as AnyObject).count {
                 let cellObject:String = (((cellDescriptors[section] as! NSMutableArray)[row] as AnyObject)["itemID"] as!  String?)!
+
                 switch cellObject {
                 case "PORT":
                     ((cellDescriptors[section] as! NSMutableArray)[row] as AnyObject).setValue("\(GlobalVariables.port)", forKey: "secondaryTitle")
@@ -213,11 +303,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 case "adresslocal": ((cellDescriptors[section] as! NSMutableArray)[row] as AnyObject).setValue("\(GlobalVariables.IPlocal):\(GlobalVariables.Portlocal)", forKey: "primaryTitle")
                     break
                 
-//                case "dataType": ((cellDescriptors[section] as! NSMutableArray)[row] as AnyObject).setValue("\(gvDataType.gvSelectedData)", forKey: "primaryTitle")
-//                    break
                 case "cloudProtocol": ((cellDescriptors[section] as! NSMutableArray)[row] as AnyObject).setValue("\(GlobalVariables.cloudProtocol)", forKey: "primaryTitle")
                     break
                 case "LANProtocol": ((cellDescriptors[section] as! NSMutableArray)[row] as AnyObject).setValue("\(GlobalVariables.LANProtocol)", forKey: "primaryTitle")
+                    break
+                case "speed": ((cellDescriptors[section] as! NSMutableArray)[row] as AnyObject).setValue("\(GlobalVariables.speed)", forKey: "primaryTitle")
                     break
                     
                 default:
@@ -231,6 +321,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    
     
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Afw-Qc-IHQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Afw-Qc-IHQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -111,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bja-Q4-VWW">
-                                <rect key="frame" x="16" y="-40" width="343" height="655"/>
+                                <rect key="frame" x="16" y="4" width="343" height="562"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -254,6 +254,7 @@
                     <tabBarItem key="tabBarItem" tag="1" title="Settings" image="settings-25.png" id="pqu-B3-Tjv"/>
                     <connections>
                         <outlet property="tblExpandable" destination="93P-FJ-PRT" id="tPW-I8-xP6"/>
+                        <segue destination="AYo-5D-xTP" kind="showDetail" identifier="toAccountData" id="ATs-u0-4os"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXK-Mu-evR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -298,7 +299,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gmJ-PK-dKh">
-                                <rect key="frame" x="16" y="-40" width="343" height="655"/>
+                                <rect key="frame" x="16" y="4" width="343" height="562"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -321,12 +322,52 @@
             </objects>
             <point key="canvasLocation" x="4111" y="338"/>
         </scene>
+        <!--Account Table View Controller-->
+        <scene sceneID="5OF-PP-AyZ">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="AYo-5D-xTP" customClass="AccountTableViewController" customModule="Sensors" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XgE-T1-I56">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="AYo-5D-xTP" id="95F-19-3qQ"/>
+                            <outlet property="delegate" destination="AYo-5D-xTP" id="bg9-6T-Hbo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="urm-28-MLQ"/>
+                    <connections>
+                        <segue destination="gXh-9c-sPj" kind="show" identifier="forgotpassword" id="puC-Vk-6Ad"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pza-xB-7J3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1423" y="1768"/>
+        </scene>
+        <!--Forgot PasswordTVC-->
+        <scene sceneID="eK3-gl-OMK">
+            <objects>
+                <tableViewController id="gXh-9c-sPj" customClass="ForgotPasswordTVC" customModule="SensorDataSend" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bef-HJ-UNV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="gXh-9c-sPj" id="1z2-ut-yiz"/>
+                            <outlet property="delegate" destination="gXh-9c-sPj" id="k76-ZC-fAc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tD0-5z-Hxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5017" y="1096"/>
+        </scene>
     </scenes>
     <resources>
         <image name="photo-abstract-7.png" width="30" height="30"/>
         <image name="settings-25.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U93-C4-7jg"/>
+        <segue reference="GTB-DX-lTe"/>
     </inferredMetricsTieBreakers>
 </document>

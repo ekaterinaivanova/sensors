@@ -9,12 +9,9 @@
 import Foundation
 import UIKit
 
-protocol CustomCellDelegate {
-    func dateWasSelected(_ selectedDateString: String)
-    
+protocol CustomCellDelegate {    
     func textfieldTextWasChanged(_ newText: String, parentCell: CustomCell)
     
-    //    func sliderDidChangeValue(newSliderValue: String)
 }
 
 class CustomCell: UITableViewCell, UITextFieldDelegate {
@@ -74,64 +71,13 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         if ncTextLabel != nil{
             ncTextLabel?.font = smallFont
             ncTextLabel?.textColor = secondaryColor
-            
         }
-        
-        //        if slSamplingInterval != nil {
-        //            slSamplingInterval.minimumValue = GlobalVariables.MIN_SLIDER_VALUE
-        //            slSamplingInterval.maximumValue = GlobalVariables.MAX_SLIDER_VALUE
-        //            slSamplingInterval.value = Float(GlobalVariables.gvSpeed)
-        //        }
     }
-    
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
     }
-    
-    
-    
-    
-    // MARK: IBAction Functions
-    
-    @IBAction func setDate(_ sender: AnyObject) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
-        let dateString = dateFormatter.string(from: datePicker.date)
-        
-        if delegate != nil {
-            delegate.dateWasSelected(dateString)
-        }
-    }
-    
-    
-    
-    //    @IBAction func handleSliderValueChange(sender: AnyObject) {
-    //        if delegate != nil {
-    ////            print("True value is \(slSamplingInterval.value)")
-    //            let lvSlValue = logSliderValue(slSamplingInterval.value)
-    //
-    //            delegate.sliderDidChangeValue("\(lvSlValue)")
-    //            GlobalVariables.gvSpeed = Double(lvSlValue)
-    //            }
-    //    }
-    
-    //    func logSliderValue(position:Float)->Float {
-    //
-    //        GlobalVariables.sliderPosition = position
-    //        let value = 3 * position
-    //        if value < 1{
-    //            return round(pow(10, value))/1000
-    //        }else if value < 2{
-    //            return round(pow(10, value-1))/100
-    //        }else{
-    //            return round(pow(10, value-2))/10
-    //        }
-    //
-    //    }
-    
     
     // MARK: UITextFieldDelegate Function
     
@@ -145,7 +91,6 @@ class CustomCell: UITableViewCell, UITextFieldDelegate {
         if delegate != nil {
             delegate.textfieldTextWasChanged(textField.text!, parentCell: self)
         }
-        
         return true
     }
     

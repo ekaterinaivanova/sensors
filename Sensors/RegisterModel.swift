@@ -14,7 +14,7 @@ class RegisterModel{
     let dataLabels = ["Name","Lastname","Email","Password", "Re-password"]
     var data = ["","","","", ""]
     let registerClient = RegisterClient()
-    let loginClient = LoginClient()
+    let loginClient = UserClient()
     
     
     func count()->Int{

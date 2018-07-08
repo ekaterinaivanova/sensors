@@ -22,7 +22,7 @@
 		C24FC4921E9A78140068F4DF /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4911E9A78140068F4DF /* Localized.strings */; };
 		C24FC4941EA49B040068F4DF /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4931EA49B040068F4DF /* Globals.swift */; };
 		C24FC4971EA49EB00068F4DF /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4961EA49EB00068F4DF /* NormalCell.xib */; };
-		C24FC49A1EA49F370068F4DF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4991EA49F370068F4DF /* TableViewCell.swift */; };
+		C24FC49A1EA49F370068F4DF /* NormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4991EA49F370068F4DF /* NormalCell.swift */; };
 		C24FC49C1EA49F950068F4DF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC49B1EA49F950068F4DF /* Styles.swift */; };
 		C24FC49E1EA4A8B30068F4DF /* SubjectExperimentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC49D1EA4A8B30068F4DF /* SubjectExperimentModel.swift */; };
 		C24FC4A11EA4AC240068F4DF /* ExperimentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4A01EA4AC240068F4DF /* ExperimentClient.swift */; };
@@ -48,7 +48,7 @@
 		C24FC4D51EB749B20068F4DF /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4D41EB749B20068F4DF /* AccountCell.xib */; };
 		C24FC4D71EB749F50068F4DF /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24FC4D61EB749F50068F4DF /* ButtonCell.xib */; };
 		C24FC4D91EB74AE30068F4DF /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4D81EB74AE30068F4DF /* LoginModel.swift */; };
-		C24FC4DB1EB74C750068F4DF /* LoginClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4DA1EB74C750068F4DF /* LoginClient.swift */; };
+		C24FC4DB1EB74C750068F4DF /* UserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24FC4DA1EB74C750068F4DF /* UserClient.swift */; };
 		C250DDE91E99534200C9A7BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250DDE81E99534200C9A7BE /* AppDelegate.swift */; };
 		C250DDEB1E99534200C9A7BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C250DDEA1E99534200C9A7BE /* ViewController.swift */; };
 		C250DDEE1E99534200C9A7BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C250DDEC1E99534200C9A7BE /* Main.storyboard */; };
@@ -56,6 +56,11 @@
 		C250DDF31E99534200C9A7BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C250DDF21E99534200C9A7BE /* Assets.xcassets */; };
 		C250DDF61E99534200C9A7BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C250DDF41E99534200C9A7BE /* LaunchScreen.storyboard */; };
 		C271C13B1EB8B8E5002A6343 /* ic_person_add.png in Resources */ = {isa = PBXBuildFile; fileRef = C271C13A1EB8B8E5002A6343 /* ic_person_add.png */; };
+		C2C65BCD20EE9D60009AF0B3 /* NormalSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C65BCC20EE9D5F009AF0B3 /* NormalSettingsCell.xib */; };
+		C2C65BD220F219F1009AF0B3 /* ValuePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C65BD120F219F1009AF0B3 /* ValuePickerCell.swift */; };
+		C2C65BD520F21AFC009AF0B3 /* ValuePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C65BD420F21AFC009AF0B3 /* ValuePickerCell.xib */; };
+		C2C65BD820F28EE4009AF0B3 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C65BD720F28EE4009AF0B3 /* AccountTableViewController.swift */; };
+		C2C65BDA20F28F25009AF0B3 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C65BD920F28F25009AF0B3 /* AccountModel.swift */; };
 		C2D83EA61EBDCEDF00F30A63 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D83EA51EBDCEDF00F30A63 /* RegisterViewController.swift */; };
 		C2D83EA81EBDD1ED00F30A63 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D83EA71EBDD1ED00F30A63 /* RegisterModel.swift */; };
 		C2D83EAA1EBDD2DA00F30A63 /* RegisterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D83EA91EBDD2DA00F30A63 /* RegisterClient.swift */; };
@@ -78,7 +83,7 @@
 		C24FC4911E9A78140068F4DF /* Localized.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localized.strings; sourceTree = "<group>"; };
 		C24FC4931EA49B040068F4DF /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		C24FC4961EA49EB00068F4DF /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
-		C24FC4991EA49F370068F4DF /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C24FC4991EA49F370068F4DF /* NormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalCell.swift; sourceTree = "<group>"; };
 		C24FC49B1EA49F950068F4DF /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		C24FC49D1EA4A8B30068F4DF /* SubjectExperimentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectExperimentModel.swift; sourceTree = "<group>"; };
 		C24FC4A01EA4AC240068F4DF /* ExperimentClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentClient.swift; sourceTree = "<group>"; };
@@ -105,7 +110,7 @@
 		C24FC4D41EB749B20068F4DF /* AccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
 		C24FC4D61EB749F50068F4DF /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		C24FC4D81EB74AE30068F4DF /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		C24FC4DA1EB74C750068F4DF /* LoginClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginClient.swift; sourceTree = "<group>"; };
+		C24FC4DA1EB74C750068F4DF /* UserClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserClient.swift; sourceTree = "<group>"; };
 		C250DDE51E99534200C9A7BE /* Sensors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sensors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C250DDE81E99534200C9A7BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C250DDEA1E99534200C9A7BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +120,11 @@
 		C250DDF51E99534200C9A7BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C250DDF71E99534200C9A7BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C271C13A1EB8B8E5002A6343 /* ic_person_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_person_add.png; sourceTree = "<group>"; };
+		C2C65BCC20EE9D5F009AF0B3 /* NormalSettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NormalSettingsCell.xib; path = ../../../diplomska/SensorDataSend/NormalSettingsCell.xib; sourceTree = "<group>"; };
+		C2C65BD120F219F1009AF0B3 /* ValuePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePickerCell.swift; sourceTree = "<group>"; };
+		C2C65BD420F21AFC009AF0B3 /* ValuePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ValuePickerCell.xib; sourceTree = "<group>"; };
+		C2C65BD720F28EE4009AF0B3 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		C2C65BD920F28F25009AF0B3 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		C2D83EA51EBDCEDF00F30A63 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C2D83EA71EBDD1ED00F30A63 /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C2D83EA91EBDD2DA00F30A63 /* RegisterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterClient.swift; sourceTree = "<group>"; };
@@ -154,6 +164,7 @@
 		C24F0D8920C2A1E500E3CE59 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				C2C65BCC20EE9D5F009AF0B3 /* NormalSettingsCell.xib */,
 				C24F0D8C20C2A3FB00E3CE59 /* TextfieldCell.xib */,
 				C24F0D8A20C2A22200E3CE59 /* CustomCell.swift */,
 			);
@@ -206,6 +217,7 @@
 		C24FC4951EA49E8C0068F4DF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C2C65BD020F219A8009AF0B3 /* ValuePickerCell */,
 				C24F0D8920C2A1E500E3CE59 /* CustomCell */,
 				C22E1CE01F5AB55F00B6E786 /* SettingCells */,
 				C24FC4D11EB7492F0068F4DF /* AccountCells */,
@@ -220,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				C24FC4961EA49EB00068F4DF /* NormalCell.xib */,
-				C24FC4991EA49F370068F4DF /* TableViewCell.swift */,
+				C24FC4991EA49F370068F4DF /* NormalCell.swift */,
 			);
 			name = NormalCell;
 			sourceTree = "<group>";
@@ -230,7 +242,7 @@
 			children = (
 				C24FC4A01EA4AC240068F4DF /* ExperimentClient.swift */,
 				C24FC4A21EA4FCD70068F4DF /* SubjectClient.swift */,
-				C24FC4DA1EB74C750068F4DF /* LoginClient.swift */,
+				C24FC4DA1EB74C750068F4DF /* UserClient.swift */,
 				C2D83EA91EBDD2DA00F30A63 /* RegisterClient.swift */,
 			);
 			name = API;
@@ -316,6 +328,7 @@
 		C250DDE71E99534200C9A7BE /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				C2C65BD620F28EAC009AF0B3 /* Account */,
 				C20346B81EDDD406001BA0C3 /* Settings */,
 				C2D83EA41EBDCEA400F30A63 /* Register */,
 				C24FC4CE1EB7485C0068F4DF /* Login */,
@@ -346,6 +359,24 @@
 				C24FC49D1EA4A8B30068F4DF /* SubjectExperimentModel.swift */,
 			);
 			name = SubjectExperementSettings;
+			sourceTree = "<group>";
+		};
+		C2C65BD020F219A8009AF0B3 /* ValuePickerCell */ = {
+			isa = PBXGroup;
+			children = (
+				C2C65BD120F219F1009AF0B3 /* ValuePickerCell.swift */,
+				C2C65BD420F21AFC009AF0B3 /* ValuePickerCell.xib */,
+			);
+			name = ValuePickerCell;
+			sourceTree = "<group>";
+		};
+		C2C65BD620F28EAC009AF0B3 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C2C65BD720F28EE4009AF0B3 /* AccountTableViewController.swift */,
+				C2C65BD920F28F25009AF0B3 /* AccountModel.swift */,
+			);
+			name = Account;
 			sourceTree = "<group>";
 		};
 		C2D83EA41EBDCEA400F30A63 /* Register */ = {
@@ -429,10 +460,12 @@
 				C250DDF61E99534200C9A7BE /* LaunchScreen.storyboard in Resources */,
 				C24FC4D51EB749B20068F4DF /* AccountCell.xib in Resources */,
 				C250DDF31E99534200C9A7BE /* Assets.xcassets in Resources */,
+				C2C65BCD20EE9D60009AF0B3 /* NormalSettingsCell.xib in Resources */,
 				C250DDEE1E99534200C9A7BE /* Main.storyboard in Resources */,
 				C24F0D8D20C2A3FB00E3CE59 /* TextfieldCell.xib in Resources */,
 				C24FC4C81EB721B10068F4DF /* HomeLeftLabel.xib in Resources */,
 				C271C13B1EB8B8E5002A6343 /* ic_person_add.png in Resources */,
+				C2C65BD520F21AFC009AF0B3 /* ValuePickerCell.xib in Resources */,
 				C24FC4971EA49EB00068F4DF /* NormalCell.xib in Resources */,
 				C2D83EAC1EBE6B7200F30A63 /* login.png in Resources */,
 			);
@@ -466,6 +499,7 @@
 			files = (
 				C24FC4A61EA513A30068F4DF /* SubjectExperementDetailsViewController.swift in Sources */,
 				C24FC4D91EB74AE30068F4DF /* LoginModel.swift in Sources */,
+				C2C65BDA20F28F25009AF0B3 /* AccountModel.swift in Sources */,
 				C24F0D8B20C2A22200E3CE59 /* CustomCell.swift in Sources */,
 				C22E1CDF1F5AB03E00B6E786 /* SettingsViewController.swift in Sources */,
 				C24FC49C1EA49F950068F4DF /* Styles.swift in Sources */,
@@ -482,19 +516,21 @@
 				C24FC49E1EA4A8B30068F4DF /* SubjectExperimentModel.swift in Sources */,
 				C250DDF11E99534200C9A7BE /* Sensors.xcdatamodeld in Sources */,
 				C24FC4C31EB7209D0068F4DF /* HomeCell.swift in Sources */,
-				C24FC4DB1EB74C750068F4DF /* LoginClient.swift in Sources */,
+				C24FC4DB1EB74C750068F4DF /* UserClient.swift in Sources */,
 				C24FC4B01EB4A37C0068F4DF /* GraphView.swift in Sources */,
 				C24FC4B51EB5F5090068F4DF /* TcpClient.swift in Sources */,
 				C2D83EAA1EBDD2DA00F30A63 /* RegisterClient.swift in Sources */,
-				C24FC49A1EA49F370068F4DF /* TableViewCell.swift in Sources */,
+				C24FC49A1EA49F370068F4DF /* NormalCell.swift in Sources */,
 				C250DDEB1E99534200C9A7BE /* ViewController.swift in Sources */,
 				C2D83EA61EBDCEDF00F30A63 /* RegisterViewController.swift in Sources */,
 				C24FC3C21E9A49270068F4DF /* ClientApi.swift in Sources */,
+				C2C65BD820F28EE4009AF0B3 /* AccountTableViewController.swift in Sources */,
 				C24FC4AE1EB4A2C20068F4DF /* GraphViewController.swift in Sources */,
 				C24FC4C11EB609930068F4DF /* LocationManager.swift in Sources */,
 				C24FC4B21EB4C0490068F4DF /* SensorModel.swift in Sources */,
 				C250DDE91E99534200C9A7BE /* AppDelegate.swift in Sources */,
 				C24FC4D31EB7494C0068F4DF /* AccountTableViewCell.swift in Sources */,
+				C2C65BD220F219F1009AF0B3 /* ValuePickerCell.swift in Sources */,
 				C24FC4D01EB748A90068F4DF /* LoginViewController.swift in Sources */,
 				C24FC4941EA49B040068F4DF /* Globals.swift in Sources */,
 				C2D83EA81EBDD1ED00F30A63 /* RegisterModel.swift in Sources */,

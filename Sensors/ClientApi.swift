@@ -13,7 +13,8 @@ class ApiClent {
     
     func clientURLRequest(path: String, params: Dictionary<String, AnyObject>? = nil) -> NSMutableURLRequest {
 
-        let request = NSMutableURLRequest(url: NSURL(string: "http://192.168.0.102:8484/"+path)! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string:"http://localhost:8484/" + path)! as URL)
+            //"http://192.168.0.102:8484/"
         if let params = params {
             var paramString = ""
             for (key, value) in params {
@@ -46,7 +47,7 @@ class ApiClent {
         dataTask(request: request, method: "GET", completion: completion)
     }
     
-    private func delete(request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
+    func delete(request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
         dataTask(request: request, method: "delete", completion: completion)
     }
     

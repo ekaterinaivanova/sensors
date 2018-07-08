@@ -13,7 +13,7 @@ class LoginModel{
     let dataLabels = ["Email","Password"]
     var data = ["",""]
     
-    let client = LoginClient()
+    let client = UserClient()
     
     
     func count()->Int{
