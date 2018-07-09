@@ -346,10 +346,10 @@
             </objects>
             <point key="canvasLocation" x="1472.8" y="2624.4377811094455"/>
         </scene>
-        <!--Forgot PasswordTVC-->
+        <!--Forgot Password Table View Controller-->
         <scene sceneID="eK3-gl-OMK">
             <objects>
-                <tableViewController id="gXh-9c-sPj" customClass="ForgotPasswordTVC" customModule="SensorDataSend" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gXh-9c-sPj" customClass="ForgotPasswordTableViewController" customModule="Sensors" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bef-HJ-UNV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

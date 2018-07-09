@@ -48,6 +48,20 @@ class UserClient{
             })
         }
     }
+    
+    func requestNewPassword(_ email:String, complition:@escaping (_ result:String)-> Void){
+        let param = ["email":"\(email)"] as Dictionary<String, String>
+        api.put(request: api.clientURLRequest(path:  "forgotpassword)", params: param as Dictionary<String, AnyObject>)){
+            (success, object) -> () in
+            GlobalVariables.loggedIn = false;
+            if let status = object!["status"] as? String{
+                complition(status)
+            }else{
+                complition("NR")
+            }
+        }
+    }
+    
     func changePassword(oldPassword:String, newPassword:String, completion: @escaping (_ message: String?) -> ()) {
         let param = ["pwd":"\(oldPassword)", "new_pwd":"\(newPassword)"] as Dictionary<String, String>
         api.put(request: api.clientURLRequest(path:  "users/\(String(describing: GlobalVariables.loginID))", params: param as Dictionary<String, AnyObject>)){

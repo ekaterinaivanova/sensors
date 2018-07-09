@@ -61,6 +61,8 @@
 		C2C65BD520F21AFC009AF0B3 /* ValuePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C65BD420F21AFC009AF0B3 /* ValuePickerCell.xib */; };
 		C2C65BD820F28EE4009AF0B3 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C65BD720F28EE4009AF0B3 /* AccountTableViewController.swift */; };
 		C2C65BDA20F28F25009AF0B3 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C65BD920F28F25009AF0B3 /* AccountModel.swift */; };
+		C2C65BDD20F3E051009AF0B3 /* ForgotPasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C65BDC20F3E051009AF0B3 /* ForgotPasswordTableViewController.swift */; };
+		C2C65BDF20F3E09C009AF0B3 /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C65BDE20F3E09C009AF0B3 /* ForgotPasswordModel.swift */; };
 		C2D83EA61EBDCEDF00F30A63 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D83EA51EBDCEDF00F30A63 /* RegisterViewController.swift */; };
 		C2D83EA81EBDD1ED00F30A63 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D83EA71EBDD1ED00F30A63 /* RegisterModel.swift */; };
 		C2D83EAA1EBDD2DA00F30A63 /* RegisterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D83EA91EBDD2DA00F30A63 /* RegisterClient.swift */; };
@@ -125,6 +127,8 @@
 		C2C65BD420F21AFC009AF0B3 /* ValuePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ValuePickerCell.xib; sourceTree = "<group>"; };
 		C2C65BD720F28EE4009AF0B3 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		C2C65BD920F28F25009AF0B3 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		C2C65BDC20F3E051009AF0B3 /* ForgotPasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordTableViewController.swift; sourceTree = "<group>"; };
+		C2C65BDE20F3E09C009AF0B3 /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
 		C2D83EA51EBDCEDF00F30A63 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C2D83EA71EBDD1ED00F30A63 /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C2D83EA91EBDD2DA00F30A63 /* RegisterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterClient.swift; sourceTree = "<group>"; };
@@ -383,6 +387,8 @@
 		C2C65BDB20F2B4C9009AF0B3 /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
+				C2C65BDC20F3E051009AF0B3 /* ForgotPasswordTableViewController.swift */,
+				C2C65BDE20F3E09C009AF0B3 /* ForgotPasswordModel.swift */,
 			);
 			name = ForgotPassword;
 			sourceTree = "<group>";
@@ -512,6 +518,7 @@
 				C22E1CDF1F5AB03E00B6E786 /* SettingsViewController.swift in Sources */,
 				C24FC49C1EA49F950068F4DF /* Styles.swift in Sources */,
 				C24FC4A31EA4FCD70068F4DF /* SubjectClient.swift in Sources */,
+				C2C65BDD20F3E051009AF0B3 /* ForgotPasswordTableViewController.swift in Sources */,
 				C24FC4BB1EB5F7B90068F4DF /* UdpClient.swift in Sources */,
 				C24FC48E1E9A77FE0068F4DF /* LocalizedButton.swift in Sources */,
 				C24FC4A11EA4AC240068F4DF /* ExperimentClient.swift in Sources */,
@@ -541,6 +548,7 @@
 				C2C65BD220F219F1009AF0B3 /* ValuePickerCell.swift in Sources */,
 				C24FC4D01EB748A90068F4DF /* LoginViewController.swift in Sources */,
 				C24FC4941EA49B040068F4DF /* Globals.swift in Sources */,
+				C2C65BDF20F3E09C009AF0B3 /* ForgotPasswordModel.swift in Sources */,
 				C2D83EA81EBDD1ED00F30A63 /* RegisterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
