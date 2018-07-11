@@ -226,7 +226,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="130.88455772113943"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="eia-kW-Hjb">
             <objects>
                 <viewController id="CHY-F9-Z2K" customClass="SettingsViewController" customModule="Sensors" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,15 +251,15 @@
                             <constraint firstItem="93P-FJ-PRT" firstAttribute="leading" secondItem="22R-9F-kS4" secondAttribute="leadingMargin" id="zbX-0m-Rko"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Settings" image="settings-25.png" id="pqu-B3-Tjv"/>
+                    <navigationItem key="navigationItem" id="Q6y-8A-W60"/>
                     <connections>
                         <outlet property="tblExpandable" destination="93P-FJ-PRT" id="tPW-I8-xP6"/>
-                        <segue destination="Pgc-bw-NVY" kind="showDetail" identifier="toAccountData" id="ATs-u0-4os"/>
+                        <segue destination="AYo-5D-xTP" kind="show" identifier="toAccountData" id="Bty-9V-Nic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXK-Mu-evR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533.60000000000002" y="1783.3583208395803"/>
+            <point key="canvasLocation" x="1472.8" y="1783.3583208395803"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oNS-ei-rTi">
@@ -279,7 +279,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="XN5-dK-awX" kind="relationship" relationship="viewControllers" id="nF2-Do-mKo"/>
-                        <segue destination="CHY-F9-Z2K" kind="relationship" relationship="viewControllers" id="nEe-21-dzW"/>
+                        <segue destination="ldp-sT-XLh" kind="relationship" relationship="viewControllers" id="nEe-21-dzW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idh-tr-Tt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -320,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcb-cr-7hY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3361" y="2232"/>
+            <point key="canvasLocation" x="4300" y="2231.3343328335832"/>
         </scene>
         <!--Account Table View Controller-->
         <scene sceneID="5OF-PP-AyZ">
@@ -382,12 +382,32 @@
             </objects>
             <point key="canvasLocation" x="533.60000000000002" y="2624.4377811094455"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="Q4F-fk-Mqf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ldp-sT-XLh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="1" title="Settings" image="settings-25.png" id="pqu-B3-Tjv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k7F-hA-jOi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CHY-F9-Z2K" kind="relationship" relationship="rootViewController" id="MaY-Cz-nV9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQT-eM-sHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="533.60000000000002" y="1783.3583208395803"/>
+        </scene>
     </scenes>
     <resources>
         <image name="photo-abstract-7.png" width="30" height="30"/>
         <image name="settings-25.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Bty-9V-Nic"/>
         <segue reference="6Lb-D0-rR7"/>
         <segue reference="JIj-xH-lHh"/>
     </inferredMetricsTieBreakers>

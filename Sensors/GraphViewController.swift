@@ -143,7 +143,7 @@ class GraphViewController: UIViewController {
     func getRawAcceleration(){
         var time = ""
         var acc:NSDictionary = NSDictionary()
-        motionKit.getAccelerometerValues(GlobalVariables.speed) {
+        motionKit.getAccelerometerValues(interval: GlobalVariables.speed) {
             (x, y, z) in
             time = "\(Date().timeIntervalSince1970)"
 
@@ -186,7 +186,7 @@ class GraphViewController: UIViewController {
         let freq = GlobalVariables.speed
         var dateSting = ""
         
-        self.motionKit.getDeviceMotionObject(freq){
+        self.motionKit.getDeviceMotionObject(interval: freq){
             (deviceMotion) -> () in
             
             self.sampleCount = self.sampleCount + 1

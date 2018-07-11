@@ -38,12 +38,8 @@ class AccountTableViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        
-        
         self.tableView.register(UINib(nibName: "AccountCell", bundle: nil), forCellReuseIdentifier: "idCellTextFieldLabel")
-        
         self.tableView.register(UINib(nibName: "NewAccountCell", bundle: nil), forCellReuseIdentifier: "idNormalLabelCell")
-        
         self.tableView.register(UINib(nibName: "ButtonCell", bundle: nil), forCellReuseIdentifier: "idCellButton")
     }
     
@@ -107,32 +103,15 @@ class AccountTableViewController: UITableViewController {
         case AlertType.delete:
             let okString =  NSLocalizedString("OK", tableName: "Localized", comment: "")
             let cancelString = NSLocalizedString("Cancel", tableName: "Localized", comment: "")
+            let myAlert: UIAlertController = UIAlertController(title: title, message:  message, preferredStyle: .alert)
             
-            if #available(iOS 8.0, *) {
-                let myAlert: UIAlertController = UIAlertController(title: title, message:  message, preferredStyle: .alert)
-                
-                myAlert.addAction(UIAlertAction(title: okString, style: .default, handler:{action in
-                    self.deleteAccount()
-                }))
-                
-                myAlert.addAction(UIAlertAction(title: cancelString, style: .default, handler: nil))
-                OperationQueue.main.addOperation {
-                    self.present(myAlert, animated: true, completion: nil)
-                }
-                
-            } else {
-                let alert: UIAlertView = UIAlertView()
-                alert.delegate = self
-                
-                alert.title = title
-                alert.message = message
-                
-                alert.addButton(withTitle: okString)
-                alert.addButton(withTitle: cancelString)
-                
-                OperationQueue.main.addOperation {
-                    alert.show()
-                }
+            myAlert.addAction(UIAlertAction(title: okString, style: .default, handler:{action in
+                self.deleteAccount()
+            }))
+            
+            myAlert.addAction(UIAlertAction(title: cancelString, style: .default, handler: nil))
+            OperationQueue.main.addOperation {
+                self.present(myAlert, animated: true, completion: nil)
             }
             break
         case AlertType.ok:
@@ -274,71 +253,13 @@ class AccountTableViewController: UITableViewController {
                     if editing {
                         cell.textField.isUserInteractionEnabled = true
                         cell.textField.placeholder = cellData["label"] as! String?
-                        
                     }
                 }
             }
         }
-        
         cell.delegate =  self
         return cell
-        
     }
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension AccountTableViewController:AccountTableViewCellDelegete{

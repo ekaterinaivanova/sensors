@@ -12,21 +12,15 @@ class ApiClent {
     
     
     func clientURLRequest(path: String, params: Dictionary<String, AnyObject>? = nil) -> NSMutableURLRequest {
-
-        let request = NSMutableURLRequest(url: NSURL(string:"http://localhost:8484/" + path)! as URL)
-            //"http://192.168.0.102:8484/"
+        let url = "http://192.168.0.101:8484/"
+        let request = NSMutableURLRequest(url: NSURL(string: url + path)! as URL)
         if let params = params {
             var paramString = ""
             for (key, value) in params {
-
                 let escapedKey = key.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
                 let escapedValue = value.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
                 paramString += "\(String(describing: escapedKey!))=\(String(describing: escapedValue!))&"
-
             }
-            
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             request.httpBody = paramString.data(using: String.Encoding.utf8)
         }

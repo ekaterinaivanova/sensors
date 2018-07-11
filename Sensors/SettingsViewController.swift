@@ -151,9 +151,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             ((cellDescriptors[indexPath.section] as! NSMutableArray)[indexOfTappedRow] as AnyObject).setValue(shouldExpandAndShowSubRows, forKey: "isExpanded")
 
             for i in (indexOfTappedRow + 1)...(indexOfTappedRow + (checkCell["additionalRows"] as! Int)) {
-
                 ((cellDescriptors[indexPath.section]  as! NSMutableArray)[i] as AnyObject).setValue(shouldExpandAndShowSubRows, forKey: "isVisible")
-
             }
 
         } else {
@@ -191,8 +189,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
                 }
             }else if checkCell["itemID"] as! String == "account"{
-                performSegue(withIdentifier: "toAccountData", sender: self)
-
+                self.performSegue(withIdentifier: "toAccountData", sender: self)
             }
         }
 
