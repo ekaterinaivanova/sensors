@@ -20,7 +20,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 //    var datypes = DataTpeModel()
     
     func textfieldTextWasChanged(_ newText: String, parentCell: CustomCell) {
-        print("CHange happened")
         let parentCellIndexPath = tblExpandable.indexPath(for: parentCell)
         if (parentCellIndexPath as NSIndexPath?)?.section == 0{
             if (parentCellIndexPath as NSIndexPath?)?.row == 1 {
@@ -93,7 +92,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let currentCellDescriptor = getCellDescriptorForIndexPath(indexPath)
         let identifier = currentCellDescriptor["cellIdentifier"] as! String
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) 
         if currentCellDescriptor["cellIdentifier"] as! String == "normalCell" {
             
             if let primaryTitle = currentCellDescriptor["primaryTitle"] {

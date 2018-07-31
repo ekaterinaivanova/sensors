@@ -167,7 +167,8 @@ class MotionKit {
         
         if manager.isDeviceMotionAvailable{
             manager.deviceMotionUpdateInterval = interval
-            manager.startDeviceMotionUpdates(to: OperationQueue()) { (data, error) in
+             manager.startDeviceMotionUpdates(using: CMAttitudeReferenceFrame.xArbitraryCorrectedZVertical, to: OperationQueue.main){
+                (data, error) in
                 if let isError = error{
                     print("Error: %@", isError)
                 }

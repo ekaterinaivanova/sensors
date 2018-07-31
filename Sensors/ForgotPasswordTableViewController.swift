@@ -35,7 +35,6 @@ class ForgotPasswordTableViewController: UITableViewController, AccountTableView
     }
     
     func buttonWasTapped(_ parentCell: AccountTableViewCell){
-        print("Button was tapped")
         loopThroughCells()
         model.sendData { (result) in
             switch result!{

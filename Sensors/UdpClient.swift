@@ -96,7 +96,7 @@ class Client: NSObject, GCDAsyncUdpSocketDelegate {
     }
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didConnectToAddress address: Data) {
-        print("udpSocket didConnectToAddress");
+        print("udpSocket didConnectToAddress", address);
     }
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {

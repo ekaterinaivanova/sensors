@@ -18,22 +18,18 @@ class GraphViewController: UIViewController {
     let motionKit = MotionKit()
     let sensorModel = SensorModel()
     
-    var udpClientLocal = Client(type: 0)
+//    var udpClientLocal = Client(type: 0)
     var udpClientCloud = Client(type: 1)
     
-    var tcplientLocal = TCPClient(type: 0)
+//    var tcplientLocal = TCPClient(type: 0)
     var tcpClientCloud = TCPClient(type: 1)
 
-    
-    
-    
     let bigFont = Styles.bigFont
     
     @IBOutlet weak var sensorChangeSegmentControl: UISegmentedControl!
+    @IBOutlet weak var measurementButton: LocalizedButton!
     @IBOutlet weak var startButton: LocalizedButton!
     @IBOutlet weak var selectedSensorLabel: LocalizedLabel!
-    
-   
     
     fileprivate var sample = 0
     fileprivate var lan = false
@@ -56,7 +52,7 @@ class GraphViewController: UIViewController {
     
     var selectedSensorToShow:Int{
         get{
-            if let selectedSensor = UserDefaults.standard.integer(forKey: "selectedSensor") as Int!{
+            if let selectedSensor = UserDefaults.standard.integer(forKey: "selectedSensor") as Int?{
                 return selectedSensor
             }else{
                 UserDefaults.standard.set(0, forKey: "selectedSensor")
@@ -71,7 +67,26 @@ class GraphViewController: UIViewController {
             
         }
     }
+    @IBAction func createNewMeasurement(_ sender: Any) {
+        if (self.sensorModel.sendingStatus == 0) {
+            MeasurementClient().createMeasurement { (Status, Result) in
+                if (Status) {
+                    self.sensorModel.sendingStatus = 1
+                    let title = self.sensorModel.sendingText
+
+                    self.measurementButton.setTitle(title, for: UIControlState())
+                    self.measurementButton.backgroundColor = self.sensorModel.backgroubdColor
+                }
+            }
+        } else {
+            self.sensorModel.sendingStatus = 0
+            self.measurementButton.setTitle(self.sensorModel.sendingText, for: UIControlState())
+            self.measurementButton.backgroundColor = self.sensorModel.backgroubdColor
+            
+        }
+    }
     
+ 
     @IBAction func tapped(_ sender: Any) {
         if lan{
             //            Send udp csv
@@ -79,7 +94,6 @@ class GraphViewController: UIViewController {
             
         }else{
             if GlobalVariables.loggedIn{
-                //                print("Session id \(GlobalVariables.GVsessionID)")
                 sensorModel.sendingStatus = (sensorModel.sendingStatus + 1) % 2
                 
                 if sensorModel.sendingStatus == 1 && homeModel.reachable{
@@ -105,18 +119,20 @@ class GraphViewController: UIViewController {
                 sensorModel.sendingStatus = (sensorModel.sendingStatus + 1) % 2
             }else{
                 alert(message:NSLocalizedString("You are not logged in", comment: ""), actions:[self.login], titles: ["login"])
-//                alertLogin(NSLocalizedString("You are not logged in", comment: ""), message: NSLocalizedString("You are not logged in msg", comment: ""))
             }
         }
         
-        startButton.setTitle(sensorModel.sendingText, for: UIControlState())
-        startButton.backgroundColor = sensorModel.backgroubdColor
+//        startButton.setTitle(sensorModel.sendingText, for: UIControlState())
+//        startButton.backgroundColor = sensorModel.backgroubdColor
         
     }
     
     func login(action: UIAlertAction){
-        
         self.performSegue(withIdentifier: "showLogin", sender: self)
+    }
+    
+    func logout(action: UIAlertAction){
+        UserClient().logout()
     }
     
     @IBAction func sensorIndexWasChanged(_ sender: AnyObject) {
@@ -130,13 +146,9 @@ class GraphViewController: UIViewController {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         for (index, title) in titles.enumerated() {
-
             alert.addAction(UIAlertAction(title: title, style: UIAlertActionStyle.default, handler: actions[index]))
-            
         }
-
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     
@@ -169,7 +181,6 @@ class GraphViewController: UIViewController {
     }
     
     func getSensorsData(){
-        
         self.sampleCount = 0
         var acc:NSDictionary = NSDictionary()
         var gyro:NSDictionary = NSDictionary()
@@ -192,12 +203,10 @@ class GraphViewController: UIViewController {
             self.sampleCount = self.sampleCount + 1
             
             dateSting = "\(deviceMotion.timestamp)"
-
             acceleration = deviceMotion.userAcceleration
             gravity = deviceMotion.gravity
             rotation = deviceMotion.rotationRate
             magnetometer = deviceMotion.magneticField
-            
             
             acc = ["x": acceleration.x, "y": acceleration.y, "z": acceleration.z, "time":dateSting,  "sensor": 0 ]
             gyro = ["x": rotation.x, "y": rotation.y,"z": rotation.z, "time":dateSting, "sensor": 1 ]
@@ -205,65 +214,41 @@ class GraphViewController: UIViewController {
             mag = ["x": magnetometer.field.x, "y": magnetometer.field.y, "z": magnetometer.field.z, "time": dateSting,  "sensor": 3 ]
             
             data = [acc,gyro,grav,mag]
-            
-//                SEND UDP DATA
+
             if self.sensorModel.sendingStatus == 1{
-                if self.lan{
-                    
-                    if GlobalVariables.LANProtocol == "UDP"{
-                        
-                        self.udpClientLocal.sendString("\(dateSting);\(self.sensorModel.getWillSend(0) ? "\(acceleration.x);\(acceleration.y);\(acceleration.z)" : ";;");\(self.sensorModel.getWillSend(1) ? "\(rotation.x);\(rotation.y);\(rotation.z)" : ";;");\(self.sensorModel.getWillSend(2) ? "\(gravity.x);\(gravity.y);\(gravity.z)" : ";;");\(self.sensorModel.getWillSend(3) ? "\(rotation.x);\(rotation.y);\(rotation.z)" : ";;");\(self.sensorModel.getWillSend(1) ? "\(magnetometer.field.x);\(magnetometer.field.y);\(magnetometer.field.z)" : ";;")")
-                        
-                    }else{
-                        
-                        self.tcplientLocal.sendString("\(dateSting);\(self.sensorModel.getWillSend(0) ? "\(acceleration.x);\(acceleration.y);\(acceleration.z)" : ";;");\(self.sensorModel.getWillSend(1) ? "\(rotation.x);\(rotation.y);\(rotation.z)" : ";;");\(self.sensorModel.getWillSend(2) ? "\(gravity.x);\(gravity.y);\(gravity.z)" : ";;");\(self.sensorModel.getWillSend(3) ? "\(rotation.x);\(rotation.y);\(rotation.z)" : ";;");\(self.sensorModel.getWillSend(1) ? "\(magnetometer.field.x);\(magnetometer.field.y);\(magnetometer.field.z)" : ";;")")                    }
-                    
-                }else{//if CLOUD
-                    
                     if  GlobalVariables.loggedIn {
-                        
                         if GlobalVariables.cloudProtocol == "UDP" {
-                            
                             for i in 0 ..< data.count{
-                                self.udpClientLocal.send(data[i] as! NSDictionary )
+                                self.udpClientCloud.send(data[i] as! NSDictionary )
                             }
-                            
                         }else{
-                            
                             self.tcpClientCloud.sendString(
                                 "\(dateSting);\(self.sensorModel.getWillSend(0) ? "\(acceleration.x);\(acceleration.y);\(acceleration.z)" : ";;");\(self.sensorModel.getWillSend(1) ? "\(rotation.x);\(rotation.y);\(rotation.z)" : ";;");\(self.sensorModel.getWillSend(2) ? "\(gravity.x);\(gravity.y);\(gravity.z)" : ";;");\(self.sensorModel.getWillSend(3) ? "\(rotation.x);\(rotation.y);\(rotation.z)" : ";;");\(self.sensorModel.getWillSend(1) ? "\(magnetometer.field.x);\(magnetometer.field.y);\(magnetometer.field.z)" : ";;")")
-                            
                         }
                     }
-                }
             }
             
             if self.sampleCount == 0{
-                
                 self.sensorModel.addPoint([[acc["x"] as! Double, acc["y"] as! Double, acc["z"] as! Double],[gyro["x"] as! Double, gyro["y"] as! Double, gyro["z"] as! Double],[grav["x"] as! Double,  grav["y"] as! Double, grav["z"] as! Double],[mag["x"] as! Double,  mag["y"] as! Double, mag["z"] as! Double]])
                 //                    Graph
                 self.graphView.maxValue = self.sensorModel.maxValues[self.selectedSensorToShow]
-                
                 switch self.selectedSensorToShow{
                 case 0:
-                    self.graphView.addPoint(acc["x"] as! Double!, y: acc["y"] as! Double!, z: acc["z"] as! Double!)
+                    self.graphView.addPoint((acc["x"] as! Double?)!, y: (acc["y"] as! Double?)!, z: (acc["z"] as! Double?)!)
                 case 1:
-                    self.graphView.addPoint(gyro["x"] as! Double!, y: gyro["y"] as! Double!, z: gyro["z"] as! Double!)
+                    self.graphView.addPoint((gyro["x"] as! Double?)!, y: (gyro["y"] as! Double?)!, z: (gyro["z"] as! Double?)!)
                 case 2:
-                    self.graphView.addPoint(grav["x"] as! Double!, y: grav["y"] as! Double!, z: grav["z"] as! Double!)
-                    
+                    self.graphView.addPoint((grav["x"] as! Double?)!, y: (grav["y"] as! Double?)!, z: (grav["z"] as! Double?)!)
                 case 3:
-                    self.graphView.addPoint(mag["x"] as! Double!, y: mag["y"] as! Double!, z: mag["z"] as! Double!)
+                    self.graphView.addPoint((mag["x"] as! Double?)!, y: (mag["y"] as! Double?)!, z: (mag["z"] as! Double?)!)
                 default:
                     break
                 }
                 
                 if self.selectedSensorToShow != 4{
-                    
                     DispatchQueue.main.async{[unowned self] in
                         self.graphView.setNeedsDisplay()
                     }
-                    
                 }
             }
         }
@@ -318,29 +303,27 @@ class GraphViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         configureTableView()
+        initButtons()
     }
 
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
-
+    }
+    
+    func initButtons() -> Void {
+        measurementButton.setTitle(sensorModel.sendingText, for: UIControlState())
     }
 
-
     func initNavigationBar() {
-        
         self.navigationItem.title = NSLocalizedString("Home", comment: "")
-
     }
     
     func reloadSettingsTable(){
-        
-        tableView.reloadData()
-        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
-    
     
     func setNotifications(){
         
@@ -354,7 +337,7 @@ class GraphViewController: UIViewController {
     
     func appDidBecomeActive(){
         
-        udpClientLocal = Client(type: 0)
+//        udpClientLocal = Client(type: 0)
         udpClientCloud = Client(type: 1)
         
         //         lvTCPClientLocal = TCPClient(type: 0)
@@ -380,14 +363,11 @@ extension GraphViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return homeModel.getNumberOfRowsInSection(section)
-        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         var cell =  HomeCell()
         
         cell = tableView.dequeueReusableCell(withIdentifier: "rightLabel", for: indexPath) as! HomeCell
@@ -401,9 +381,8 @@ extension GraphViewController: UITableViewDataSource {
         
         return cell
     }
-    // Override to support conditional editing of the table view.
+
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return false
     }
     
@@ -412,15 +391,10 @@ extension GraphViewController: UITableViewDataSource {
 extension GraphViewController: UITableViewDelegate {
     
     func tableViewLoginClicked(){
-        alert(message:NSLocalizedString("You are not logged in", comment: ""), actions:[self.login], titles: ["login"])
         if GlobalVariables.loggedIn{
-        
-//            alertLogin(NSLocalizedString("Logout", comment: ""), message: NSLocalizedString("Do you want to logout?", comment: ""))
-            
+            alert(message:NSLocalizedString("Do you want to logout?", comment: ""), actions:[self.logout, { action in }], titles: ["logout", "cancel"])
         }else{
-            
-//            alertLogin(NSLocalizedString("You are not logged in", comment: ""), message: NSLocalizedString("You are not logged in msg", comment: ""))
-            
+            alert(message:NSLocalizedString("You are not logged in", comment: ""), actions:[self.login, { action in }], titles: ["login", "cancel"])
         }
     }
     

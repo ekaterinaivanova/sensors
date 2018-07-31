@@ -67,6 +67,7 @@
 		C2D83EA81EBDD1ED00F30A63 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D83EA71EBDD1ED00F30A63 /* RegisterModel.swift */; };
 		C2D83EAA1EBDD2DA00F30A63 /* RegisterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D83EA91EBDD2DA00F30A63 /* RegisterClient.swift */; };
 		C2D83EAC1EBE6B7200F30A63 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D83EAB1EBE6B7200F30A63 /* login.png */; };
+		C2EF297F2107CFA700FE084C /* MeasurementClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EF297E2107CFA700FE084C /* MeasurementClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		C2D83EA71EBDD1ED00F30A63 /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C2D83EA91EBDD2DA00F30A63 /* RegisterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterClient.swift; sourceTree = "<group>"; };
 		C2D83EAB1EBE6B7200F30A63 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		C2EF297E2107CFA700FE084C /* MeasurementClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				C24FC4A21EA4FCD70068F4DF /* SubjectClient.swift */,
 				C24FC4DA1EB74C750068F4DF /* UserClient.swift */,
 				C2D83EA91EBDD2DA00F30A63 /* RegisterClient.swift */,
+				C2EF297E2107CFA700FE084C /* MeasurementClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				C22E1CDF1F5AB03E00B6E786 /* SettingsViewController.swift in Sources */,
 				C24FC49C1EA49F950068F4DF /* Styles.swift in Sources */,
 				C24FC4A31EA4FCD70068F4DF /* SubjectClient.swift in Sources */,
+				C2EF297F2107CFA700FE084C /* MeasurementClient.swift in Sources */,
 				C2C65BDD20F3E051009AF0B3 /* ForgotPasswordTableViewController.swift in Sources */,
 				C24FC4BB1EB5F7B90068F4DF /* UdpClient.swift in Sources */,
 				C24FC48E1E9A77FE0068F4DF /* LocalizedButton.swift in Sources */,

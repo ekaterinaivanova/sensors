@@ -70,7 +70,6 @@ class AccountTableViewController: UITableViewController {
     func deleteAccount(){
         if GlobalVariables.loggedIn{
             UserClient().deleteAcc({ (result) -> Void in
-                print("Delete result is \(result)")
                 switch result{
                 case "AOK":
                     self.removeAllAccountData()
@@ -296,7 +295,6 @@ extension AccountTableViewController:AccountTableViewCellDelegete{
                     updateAction(NSLocalizedString("Update need to login", tableName: "Localized", comment: ""))
                 }
             }else{
-                print("New Password request")
                 self.performSegue(withIdentifier: "forgotpassword", sender: self)
             }
         }else{ // if is not logged in
@@ -305,7 +303,6 @@ extension AccountTableViewController:AccountTableViewCellDelegete{
             }else if (parentCellIndexPath! as NSIndexPath).row == 1{
                 self.performSegue(withIdentifier: "showRegister", sender: self)
             }else{
-                print("New Password request")
                 self.performSegue(withIdentifier: "forgotpassword", sender: self)
                 
             }

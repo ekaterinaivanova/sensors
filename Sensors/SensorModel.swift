@@ -99,7 +99,7 @@ class SensorModel{
     
     func getSpeed(_ row:Int)->Double{
         
-        if let temp = UserDefaults.standard.double(forKey: "frequency") as Double!{
+        if let temp = UserDefaults.standard.double(forKey: "frequency") as Double?{
             return temp
         }else{
             UserDefaults.standard.set(0.5, forKey: "frequency")

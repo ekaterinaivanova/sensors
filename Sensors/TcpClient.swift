@@ -11,9 +11,8 @@ import CocoaAsyncSocket;
 
 class TCPClient: NSObject, GCDAsyncSocketDelegate {
     
-    //    var IP = "192.168.0.102"
     var IP = String()
-    var PORT = UInt16(8080)
+    var PORT = UInt16()
     var socket: GCDAsyncSocket!
     
     override init() {
@@ -25,10 +24,11 @@ class TCPClient: NSObject, GCDAsyncSocketDelegate {
         super.init()
         if type == 0{
             IP = GlobalVariables.IPlocal
+            PORT = UInt16(GlobalVariables.Portlocal)!
         }else{
             IP = GlobalVariables.IP
+            PORT = 8888
         }
-        
     }
     
     func sendString(_ message:String){
@@ -56,7 +56,6 @@ class TCPClient: NSObject, GCDAsyncSocketDelegate {
     }
     
     func setupConnection(){
-        
         self.socket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.global(qos: DispatchQoS.QoSClass.default))
         do{
             
@@ -71,7 +70,7 @@ class TCPClient: NSObject, GCDAsyncSocketDelegate {
     }
     
     func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
-        print("TCP didWriteDataWithTag \(tag)")
+//        print("TCP didWriteDataWithTag \(tag)")
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
@@ -79,7 +78,6 @@ class TCPClient: NSObject, GCDAsyncSocketDelegate {
     }
     
     func disconnect(){
-        
         if self.socket.isConnected && socket != nil{
             self.socket.disconnect()
         }

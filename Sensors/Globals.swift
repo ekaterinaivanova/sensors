@@ -12,7 +12,10 @@ struct GlobalVariables {
     
     static var coordinates = String()
     
+    static var address = String()
+    
     static var sessionID:Int = 0
+    static var MeasurementID = Int()
     
     static var MIN_SLIDER_VALUE:Float{ return 0.001 }
     
@@ -20,7 +23,7 @@ struct GlobalVariables {
     
     static var experiment:Int{
         get{
-            if let temp = UserDefaults.standard.integer(forKey: "experiment") as Int!{
+            if let temp = UserDefaults.standard.integer(forKey: "experiment") as Int?{
                 
                 return temp
             }else{
@@ -38,9 +41,11 @@ struct GlobalVariables {
     
     static var loginID:Int?{
         get{
-            if let temp = UserDefaults.standard.integer(forKey: "loginId") as Int!{
+            if let temp = UserDefaults.standard.integer(forKey: "loginId") as Int?{
                 
                 return temp
+            } else {
+                return 1
             }
         }
         set{
@@ -53,7 +58,7 @@ struct GlobalVariables {
     
     static var experimentReadable:String{
         get{
-            if let temp = UserDefaults.standard.string(forKey: "experimentReadable") as String!{
+            if let temp = UserDefaults.standard.string(forKey: "experimentReadable") as String?{
                 
                 return temp
             }else{
@@ -101,7 +106,7 @@ struct GlobalVariables {
     
     static var speed:Double{
         get{
-            if let temp = UserDefaults.standard.double(forKey: "frequency") as Double!{
+            if let temp = UserDefaults.standard.double(forKey: "frequency") as Double?{
            
                 return temp
             }else{
@@ -119,7 +124,7 @@ struct GlobalVariables {
     
     static var sliderPosition:Float{
         get{
-            if let temp = UserDefaults.standard.float(forKey: "sliderPos") as Float!{
+            if let temp = UserDefaults.standard.float(forKey: "sliderPos") as Float?{
                 return temp
             }else{
                 UserDefaults.standard.set(0, forKey: "sliderPos")
@@ -217,7 +222,7 @@ struct GlobalVariables {
         get{
             
             if let lvTempName:String = UserDefaults.standard
-                .string(forKey: "userName") as String! {
+                .string(forKey: "userName") as String? {
                 return lvTempName
             }
             return ""
@@ -230,7 +235,7 @@ struct GlobalVariables {
     static var lastName:String {
         get{
             if let lvTempLastname:String = UserDefaults.standard
-                .string(forKey: "userLastname") as String!{
+                .string(forKey: "userLastname") as String?{
                 return lvTempLastname
             }
             return ""
@@ -243,7 +248,7 @@ struct GlobalVariables {
     static var email:String{
         get{
             if let lvTempEmail:String = UserDefaults.standard
-                .string(forKey: "userEmail") as String!{
+                .string(forKey: "userEmail") as String?{
                 return lvTempEmail
             }
             
@@ -258,7 +263,7 @@ struct GlobalVariables {
     {
         get{
             if let lvTempPwd:String = UserDefaults.standard
-                .string(forKey: "userPassword") as String!{
+                .string(forKey: "userPassword") as String?{
                 return lvTempPwd
             }
             return ""

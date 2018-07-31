@@ -98,7 +98,6 @@ class SubjectExperementDetailsViewController: UIViewController {
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        print("Device", UIDevice.current.modelName)
 
         switch settingType {
         case 0:

@@ -82,20 +82,17 @@ class HomeSettingsModel:NSObject{
     func setupLocation() {
         locationManager.getPlaceName { (answer) -> Void in
             if answer.count == 4{
-                
+                GlobalVariables.address = "Address: \(answer[1])"
                 self.dataRows[2] = "GPS: \(answer[0])"
                 self.dataRows[3] = "Address: \(answer[1])"
                 self.dataRows[4] = "City: \(answer[2])"
                 self.dataRows[5] = "Country: \(answer[3])"
                 self.notificationCenter.post(name: Notification.Name(rawValue: HomeModelChangedNotification), object:self)
                 self.locationManager.stopObservingLocationChange()
-                
             }
         }
     }
-    
-    
-    
+        
     func setConnectionData(){
         if reachable {
             
@@ -135,14 +132,10 @@ class HomeSettingsModel:NSObject{
     }
     
     override init() {
-        
         locationManager = LocationManager()
-        
         super.init()
-        
         notificationCenter.addObserver(self, selector: #selector(HomeSettingsModel.reachabilityChanged(_:)), name: NSNotification.Name(rawValue: ConnectonChangedNotification), object: nil)
-        
-        
+    
         notificationCenter.addObserver(self, selector: #selector(HomeSettingsModel.reachabilityChanged(_:)), name: NSNotification.Name(rawValue: LoginStatusChanged), object: nil)
         
         notificationCenter.addObserver(self, selector: #selector(HomeSettingsModel.locationChanged(_:)), name: NSNotification.Name(rawValue: LocationChangedNotification), object: nil)

@@ -101,9 +101,7 @@ class RegisterModel{
                     let user = ["Email":GlobalVariables.email, "Password": GlobalVariables.password]
                     
                     self.loginClient.login(user: user as NSDictionary, completion: { (status, result) in
-                        
-                        print("Loged in after registration")
-                        
+                                                
                     })
                     
                 }
