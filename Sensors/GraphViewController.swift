@@ -18,10 +18,7 @@ class GraphViewController: UIViewController {
     let motionKit = MotionKit()
     let sensorModel = SensorModel()
     
-//    var udpClientLocal = Client(type: 0)
     var udpClientCloud = Client(type: 1)
-    
-//    var tcplientLocal = TCPClient(type: 0)
     var tcpClientCloud = TCPClient(type: 1)
 
     let bigFont = Styles.bigFont
@@ -76,12 +73,24 @@ class GraphViewController: UIViewController {
 
                     self.measurementButton.setTitle(title, for: UIControlState())
                     self.measurementButton.backgroundColor = self.sensorModel.backgroubdColor
+                    if let data: NSDictionary = Result {
+                        print(data)
+                        GlobalVariables.MeasurementID = data.object(forKey: "MeasurementID") as! Int
+                    }
+                    
                 }
             }
         } else {
             self.sensorModel.sendingStatus = 0
-            self.measurementButton.setTitle(self.sensorModel.sendingText, for: UIControlState())
-            self.measurementButton.backgroundColor = self.sensorModel.backgroubdColor
+            MeasurementClient().updateMeasurement { (status, result) in
+                DispatchQueue.main.async{[unowned self] in
+                    print(status, result)
+                    self.measurementButton.setTitle(self.sensorModel.sendingText, for: UIControlState())
+                    self.measurementButton.backgroundColor = self.sensorModel.backgroubdColor
+                }
+                
+            }
+            
             
         }
     }
@@ -196,22 +205,62 @@ class GraphViewController: UIViewController {
         
         let freq = GlobalVariables.speed
         var dateSting = ""
-        
+        print("Freq \(freq)")
         self.motionKit.getDeviceMotionObject(interval: freq){
             (deviceMotion) -> () in
             
             self.sampleCount = self.sampleCount + 1
             
-            dateSting = "\(deviceMotion.timestamp)"
+            dateSting = "\(NSDate().timeIntervalSince1970 * 1000)"
             acceleration = deviceMotion.userAcceleration
             gravity = deviceMotion.gravity
             rotation = deviceMotion.rotationRate
             magnetometer = deviceMotion.magneticField
             
-            acc = ["x": acceleration.x, "y": acceleration.y, "z": acceleration.z, "time":dateSting,  "sensor": 0 ]
-            gyro = ["x": rotation.x, "y": rotation.y,"z": rotation.z, "time":dateSting, "sensor": 1 ]
-            grav = ["x": gravity.x, "y": gravity.y, "z": gravity.z, "time": dateSting, "sensor": 2 ]
-            mag = ["x": magnetometer.field.x, "y": magnetometer.field.y, "z": magnetometer.field.z, "time": dateSting,  "sensor": 3 ]
+            acc = [
+                "x": acceleration.x,
+                "y": acceleration.y,
+                "z": acceleration.z,
+                "timestamp":dateSting,
+                "SensorID": 1,
+                "measurement": GlobalVariables.MeasurementID,
+                "ExperimentID": GlobalVariables.experiment,
+                "DeviceID": 2,
+                "Frequency": freq
+            ]
+            gyro = [
+                "x": rotation.x,
+                "y": rotation.y,
+                "z": rotation.z,
+                "timestamp":dateSting,
+                "SensorID": 2,
+                "measurement": GlobalVariables.MeasurementID,
+                "ExperimentID": GlobalVariables.experiment,
+                "DeviceID": 2,
+                "Frequency": freq
+            ]
+            grav = [
+                "x": gravity.x,
+                "y": gravity.y,
+                "z": gravity.z,
+                "timestamp": dateSting,
+                "SensorID": 3,
+                "measurement": GlobalVariables.MeasurementID,
+                "ExperimentID": GlobalVariables.experiment,
+                "DeviceID": 2,
+                "Frequency": freq
+            ]
+            mag = [
+                "x": magnetometer.field.x,
+                "y": magnetometer.field.y,
+                "z": magnetometer.field.z,
+                "timestamp": dateSting,
+                "SensorID": 4,
+                "measurement": GlobalVariables.MeasurementID,
+                "ExperimentID": GlobalVariables.experiment,
+                "DeviceID": 2,
+                "Frequency": freq
+            ]
             
             data = [acc,gyro,grav,mag]
 
@@ -222,8 +271,7 @@ class GraphViewController: UIViewController {
                                 self.udpClientCloud.send(data[i] as! NSDictionary )
                             }
                         }else{
-                            self.tcpClientCloud.sendString(
-                                "\(dateSting);\(self.sensorModel.getWillSend(0) ? "\(acceleration.x);\(acceleration.y);\(acceleration.z)" : ";;");\(self.sensorModel.getWillSend(1) ? "\(rotation.x);\(rotation.y);\(rotation.z)" : ";;");\(self.sensorModel.getWillSend(2) ? "\(gravity.x);\(gravity.y);\(gravity.z)" : ";;");\(self.sensorModel.getWillSend(3) ? "\(rotation.x);\(rotation.y);\(rotation.z)" : ";;");\(self.sensorModel.getWillSend(1) ? "\(magnetometer.field.x);\(magnetometer.field.y);\(magnetometer.field.z)" : ";;")")
+                            self.tcpClientCloud.sendArray(data)
                         }
                     }
             }

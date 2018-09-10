@@ -55,6 +55,19 @@ class TCPClient: NSObject, GCDAsyncSocketDelegate {
         
     }
     
+    func sendArray(_ message:NSArray){
+        if self.socket == nil || self.socket.isDisconnected{
+            setupConnection()
+        }
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: message, options: JSONSerialization.WritingOptions.prettyPrinted)
+            self.socket.write(jsonData, withTimeout: 5, tag: 1)
+        } catch let error as NSError {
+            print(error)
+        }
+        
+    }
+    
     func setupConnection(){
         self.socket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.global(qos: DispatchQoS.QoSClass.default))
         do{

@@ -38,6 +38,7 @@ class ApiClent {
     }
     
     func put(request: NSMutableURLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
+        print(request)
         dataTask(request: request, method: "PUT", completion: completion)
     }
     
