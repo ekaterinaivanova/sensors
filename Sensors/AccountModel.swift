@@ -125,7 +125,7 @@ class AccountModel:NSObject{
         
         
     }
-    func dataChanged(){
+    @objc func dataChanged(){
         NotificationCenter.default.post(name: Notification.Name(rawValue: AccountModelChangedNotification), object: self)
     }
     override init() {

@@ -14,10 +14,10 @@ import CoreMotion
 //_______________________________________________________________________________________________________________
 // this helps retrieve values from the sensors.
 @objc protocol MotionKitDelegate {
-    @objc optional func retrieveAccelerometerValues (x: Double, y:Double, z:Double, absoluteValue: Double)
-    @objc optional func retrieveGyroscopeValues     (x: Double, y:Double, z:Double, absoluteValue: Double)
+    @objc optional func retrieveAccelerometerValues (x: Double, y:Double, z:Double)
+    @objc optional func retrieveGyroscopeValues     (x: Double, y:Double, z:Double)
     @objc optional func retrieveDeviceMotionObject  (deviceMotion: CMDeviceMotion)
-    @objc optional func retrieveMagnetometerValues  (x: Double, y:Double, z:Double, absoluteValue: Double)
+    @objc optional func retrieveMagnetometerValues  (x: Double, y:Double, z:Double)
     
     @objc optional func getAccelerationValFromDeviceMotion        (x: Double, y:Double, z:Double)
     @objc optional func getGravityAccelerationValFromDeviceMotion (x: Double, y:Double, z:Double)
@@ -71,8 +71,8 @@ class MotionKit {
                     values!(valX,valY,valZ)
                 }
                 
-                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
-                self.delegate?.retrieveGyroscopeValues!(x: valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+//                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+                self.delegate?.retrieveGyroscopeValues!(x: valX, y: valY, z: valZ)
             }
         } else {
             print("The Accelerometer is not available")
@@ -109,8 +109,8 @@ class MotionKit {
                     values!(valX,valY,valZ)
                 }
                 
-                let absoluteVal = sqrt((valX * valX) + (valY * valY) + (valZ * valZ))
-                self.delegate?.retrieveGyroscopeValues!(x: valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+//                let absoluteVal = sqrt((valX * valX) + (valY * valY) + (valZ * valZ))
+                self.delegate?.retrieveGyroscopeValues!(x: valX, y: valY, z: valZ)
             }
         } else {
             print("The Gyroscope is not available")
@@ -143,8 +143,8 @@ class MotionKit {
                 if values != nil{
                     values!(valX,valY,valZ)
                 }
-                let absoluteVal = sqrt((valX * valX) + (valY * valY) + valZ * valZ)
-                self.delegate?.retrieveMagnetometerValues!(x: valX, y: valY, z: valZ, absoluteValue: absoluteVal)
+//                let absoluteVal = sqrt((valX * valX) + (valY * valY) + valZ * valZ)
+                self.delegate?.retrieveMagnetometerValues!(x: valX, y: valY, z: valZ)
             }
             
         } else {

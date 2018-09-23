@@ -52,11 +52,11 @@ class AccountTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
-    func dataChange(){
+    @objc func dataChange(){
         OperationQueue.main.addOperation {
             self.tableView.reloadData()
         }
@@ -238,7 +238,7 @@ class AccountTableViewController: UITableViewController {
         if let button = cellData["button"] as! Bool?{
             if button {
                 cell = self.tableView.dequeueReusableCell(withIdentifier: "idCellButton", for: indexPath) as! AccountTableViewCell
-                cell.accountButton.setTitle(cellData["label"] as! String?, for: UIControlState())
+                cell.accountButton.setTitle(cellData["label"] as! String?, for: UIControl.State())
             }else{
                 cell = self.tableView.dequeueReusableCell(withIdentifier: "idCellTextFieldLabel", for: indexPath) as! AccountTableViewCell
                 

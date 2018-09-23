@@ -23,7 +23,7 @@ class MeasurementClient {
         api.post(request: api.clientURLRequest(path: "measurements", params: measurementObject)) { (success, object) -> () in
             DispatchQueue.main.async(execute: { () -> Void in
                 if success {
-                    if let resultDictionnary : NSDictionary = object as? NSDictionary {
+                    if let _ : NSDictionary = object as? NSDictionary {
                         completion(true, object as? NSDictionary)
                     } else {
                         completion(false, object as? NSDictionary)

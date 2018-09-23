@@ -11,7 +11,7 @@ import UIKit
 
     class LocalizedButton : UIButton {
         override func awakeFromNib() {
-            for state in [UIControlState.highlighted, UIControlState.selected, UIControlState.disabled] {
+            for state in [UIControl.State.highlighted, UIControl.State.selected, UIControl.State.disabled] {
                 if let title = title(for: state) {
                     setTitle(NSLocalizedString(title,tableName: "Localized", comment: ""), for: state)
                 }

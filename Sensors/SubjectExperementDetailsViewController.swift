@@ -156,7 +156,7 @@ extension SubjectExperementDetailsViewController: UITableViewDataSource {
         
         if isSelected(row: indexPath.row){
             cell.accessoryType = .checkmark
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.bottom)
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.bottom)
         } else {
             cell.accessoryType = .none
         }
