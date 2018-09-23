@@ -84,7 +84,7 @@ class GraphViewController: UIViewController {
             self.sensorModel.sendingStatus = 0
             MeasurementClient().updateMeasurement { (status, result) in
                 DispatchQueue.main.async{[unowned self] in
-                    print(status, result)
+                    print(status, result ?? default [])
                     self.measurementButton.setTitle(self.sensorModel.sendingText, for: UIControlState())
                     self.measurementButton.backgroundColor = self.sensorModel.backgroubdColor
                 }

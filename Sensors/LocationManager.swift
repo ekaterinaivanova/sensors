@@ -57,7 +57,7 @@ class LocationManager:NSObject, CLLocationManagerDelegate{
         
         if let containsPlacemark = placemark{
             
-            if let lvAddressDict = containsPlacemark.addressDictionary as NSDictionary!{
+            if let lvAddressDict = containsPlacemark.addressDictionary as? NSDictionary{
                 
                 if let lvStreet = lvAddressDict["FormattedAddressLines"] as? [String] {
                     
@@ -67,9 +67,9 @@ class LocationManager:NSObject, CLLocationManagerDelegate{
                 
             }
             
-            if let lvPostalCode = containsPlacemark.postalCode as String!{
+            if let lvPostalCode = containsPlacemark.postalCode as? String{
                 
-                if let lvAdministrativeArea = containsPlacemark.administrativeArea as String!{
+                if let lvAdministrativeArea = containsPlacemark.administrativeArea as? String{
                     
                     lvLocationData["city"] = "\(lvPostalCode) \(lvAdministrativeArea)"
                     

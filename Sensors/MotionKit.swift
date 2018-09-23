@@ -109,7 +109,7 @@ class MotionKit {
                     values!(valX,valY,valZ)
                 }
                 
-                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+                let absoluteVal = sqrt((valX * valX) + (valY * valY) + (valZ * valZ))
                 self.delegate?.retrieveGyroscopeValues!(x: valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
         } else {
@@ -143,7 +143,7 @@ class MotionKit {
                 if values != nil{
                     values!(valX,valY,valZ)
                 }
-                let absoluteVal = sqrt(valX * valX + valY * valY + valZ * valZ)
+                let absoluteVal = sqrt((valX * valX) + (valY * valY) + valZ * valZ)
                 self.delegate?.retrieveMagnetometerValues!(x: valX, y: valY, z: valZ, absoluteValue: absoluteVal)
             }
             
