@@ -56,6 +56,7 @@
 		C250DDF31E99534200C9A7BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C250DDF21E99534200C9A7BE /* Assets.xcassets */; };
 		C250DDF61E99534200C9A7BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C250DDF41E99534200C9A7BE /* LaunchScreen.storyboard */; };
 		C271C13B1EB8B8E5002A6343 /* ic_person_add.png in Resources */ = {isa = PBXBuildFile; fileRef = C271C13A1EB8B8E5002A6343 /* ic_person_add.png */; };
+		C283BA6F2157FDD100DFBA69 /* extantions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283BA6E2157FDD100DFBA69 /* extantions.swift */; };
 		C2C65BCD20EE9D60009AF0B3 /* NormalSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C65BCC20EE9D5F009AF0B3 /* NormalSettingsCell.xib */; };
 		C2C65BD220F219F1009AF0B3 /* ValuePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C65BD120F219F1009AF0B3 /* ValuePickerCell.swift */; };
 		C2C65BD520F21AFC009AF0B3 /* ValuePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C65BD420F21AFC009AF0B3 /* ValuePickerCell.xib */; };
@@ -123,6 +124,7 @@
 		C250DDF51E99534200C9A7BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C250DDF71E99534200C9A7BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C271C13A1EB8B8E5002A6343 /* ic_person_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_person_add.png; sourceTree = "<group>"; };
+		C283BA6E2157FDD100DFBA69 /* extantions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extantions.swift; sourceTree = "<group>"; };
 		C2C65BCC20EE9D5F009AF0B3 /* NormalSettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NormalSettingsCell.xib; path = ../../../diplomska/SensorDataSend/NormalSettingsCell.xib; sourceTree = "<group>"; };
 		C2C65BD120F219F1009AF0B3 /* ValuePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePickerCell.swift; sourceTree = "<group>"; };
 		C2C65BD420F21AFC009AF0B3 /* ValuePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ValuePickerCell.xib; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 		C250DDE71E99534200C9A7BE /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				C283BA6D2157FDBA00DFBA69 /* extantions */,
 				C2C65BDB20F2B4C9009AF0B3 /* ForgotPassword */,
 				C2C65BD620F28EAC009AF0B3 /* Account */,
 				C20346B81EDDD406001BA0C3 /* Settings */,
@@ -367,6 +370,14 @@
 				C24FC49D1EA4A8B30068F4DF /* SubjectExperimentModel.swift */,
 			);
 			name = SubjectExperementSettings;
+			sourceTree = "<group>";
+		};
+		C283BA6D2157FDBA00DFBA69 /* extantions */ = {
+			isa = PBXGroup;
+			children = (
+				C283BA6E2157FDD100DFBA69 /* extantions.swift */,
+			);
+			name = extantions;
 			sourceTree = "<group>";
 		};
 		C2C65BD020F219A8009AF0B3 /* ValuePickerCell */ = {
@@ -439,7 +450,7 @@
 					C250DDE41E99534200C9A7BE = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 5E2VP4TDPV;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -526,6 +537,7 @@
 				C24FC4BB1EB5F7B90068F4DF /* UdpClient.swift in Sources */,
 				C24FC48E1E9A77FE0068F4DF /* LocalizedButton.swift in Sources */,
 				C24FC4A11EA4AC240068F4DF /* ExperimentClient.swift in Sources */,
+				C283BA6F2157FDD100DFBA69 /* extantions.swift in Sources */,
 				C24FC4BF1EB6086B0068F4DF /* ConnectionManager.swift in Sources */,
 				C24FC48C1E9A77EE0068F4DF /* LocalizedLabel.swift in Sources */,
 				C24FC4BD1EB602520068F4DF /* HomeSettingsModel.swift in Sources */,
@@ -706,7 +718,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sensors/Sensors-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -725,7 +737,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dev-sensors";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sensors/Sensors-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

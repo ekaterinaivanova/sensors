@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, AccountTableViewCellDelegete {
     
@@ -36,10 +37,8 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
     
     @IBAction func loginButtonTapped(_ sender: AnyObject) {
         loopThroughCells()
-        if ConnectionManager.sharedInstance.reachability!.isReachable{
-            //            //////////////////////////
+        if ConnectionManager.sharedInstance.reachability!.connection != Reachability.Connection.none {
             self.loginModel.sendData { (result) -> Void in
-
                 if let lvRes = result! as String?{
                     switch lvRes{
                     case "UDNE":
@@ -80,7 +79,7 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
         
     }
     
-    func showRegisterView(){
+    @objc func showRegisterView(){
         self.performSegue(withIdentifier: "showRegister", sender: self)
     }
     
@@ -107,13 +106,13 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
     }
     
     //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     func configureKeyboard(){
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow,object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification,object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         //Looks for single or multiple taps to dissmiss keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
@@ -130,7 +129,7 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
         activeText = nil
     }
     
-    func keyboardWillShow(_ note: Notification) {
+    @objc func keyboardWillShow(_ note: Notification) {
         //        if let keyboardSize = ((note as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
         //            var frame = gvTableView.frame
         //            UIView.beginAnimations(nil, context: nil)
@@ -146,8 +145,8 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
         //        }
     }
     
-    func keyboardWillHide(_ note: Notification) {
-        if let keyboardSize = ((note as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+    @objc func keyboardWillHide(_ note: Notification) {
+        if let keyboardSize = ((note as NSNotification).userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             var frame = tableView.frame
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationBeginsFromCurrentState(true)
@@ -193,16 +192,16 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "idCellTextFieldLabel", for: indexPath) as! AccountTableViewCell
         
         let lvData = loginModel.getData((indexPath as NSIndexPath).row)
-        cell.label.text = lvData["label"] as! String!
-        cell.textField.text = lvData["data"] as! String!
-        cell.textField.isSecureTextEntry = lvData["hidden"] as! Bool!
+        cell.label.text = lvData["label"] as? String
+        cell.textField.text = lvData["data"] as? String
+        cell.textField.isSecureTextEntry = lvData["hidden"] as! Bool
         
-        cell.textField.placeholder = lvData["label"] as! String!
+        cell.textField.placeholder = lvData["label"] as? String
         
         
         cell.textField.isUserInteractionEnabled = true
         //
-        if let emailKeyboard = lvData["keyboard"] as! Bool! {
+        if let emailKeyboard = lvData["keyboard"] as? Bool {
             if emailKeyboard {
                 cell.textField.keyboardType = UIKeyboardType.emailAddress
             }
@@ -226,7 +225,7 @@ class LoginViewController: UIViewController, UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         loopThroughCells()
-        tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableViewRowAnimation.fade)
+        tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableView.RowAnimation.fade)
         
     }
     

@@ -57,7 +57,7 @@ class LocationManager:NSObject, CLLocationManagerDelegate{
         
         if let containsPlacemark = placemark{
             
-            if let lvAddressDict = containsPlacemark.addressDictionary as? NSDictionary{
+            if let lvAddressDict = containsPlacemark.addressDictionary as NSDictionary?{
                 
                 if let lvStreet = lvAddressDict["FormattedAddressLines"] as? [String] {
                     
@@ -67,24 +67,20 @@ class LocationManager:NSObject, CLLocationManagerDelegate{
                 
             }
             
-            if let lvPostalCode = containsPlacemark.postalCode as? String{
+            if let lvPostalCode = containsPlacemark.postalCode{
                 
-                if let lvAdministrativeArea = containsPlacemark.administrativeArea as? String{
+                if let lvAdministrativeArea = containsPlacemark.administrativeArea{
                     
                     lvLocationData["city"] = "\(lvPostalCode) \(lvAdministrativeArea)"
                     
                 }
                 
             }
-            if let lvCountry = containsPlacemark.country as String!{
-                
+            if let lvCountry = containsPlacemark.country{
                 lvLocationData["country"] = "\(lvCountry)"
-                
             }
-
         }
         return lvLocationData
-        
     }
     
     func displayLocationInfo(_ placemark: CLPlacemark?) -> [String]{
@@ -95,44 +91,29 @@ class LocationManager:NSObject, CLLocationManagerDelegate{
         
         if let containsPlacemark = placemark{
             
-            if let lvAddressDict = containsPlacemark.addressDictionary as NSDictionary!{
-                
+            if let lvAddressDict = containsPlacemark.addressDictionary as NSDictionary?{
                 if let lvStreet = lvAddressDict["FormattedAddressLines"] as? [String] {
-                    
                     lvLocationData.append("\(lvStreet[0])")
-
                 }
-                
             }
             
-            if let lvPostalCode = containsPlacemark.postalCode as String!{
+            if let lvPostalCode = containsPlacemark.postalCode{
                 
-                if let lvAdministrativeArea = containsPlacemark.administrativeArea as String!{
-                    
+                if let lvAdministrativeArea = containsPlacemark.administrativeArea{
                     lvLocationData.append("\(lvPostalCode) \(lvAdministrativeArea)")
-
                 }
-                
             }
-            if let lvCountry = containsPlacemark.country as String!{
-                
+            if let lvCountry = containsPlacemark.country{
                 lvLocationData.append(lvCountry)
-                
             }
-
             return lvLocationData
-            
         } else {
-            
             return [""]
-            
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
         NotificationCenter.default.post(name: Notification.Name(rawValue: LocationChangedNotification), object:self)
-        
     }
     
     func getPlaceName(_ completion: @escaping (_ answer: [String]) -> Void) {

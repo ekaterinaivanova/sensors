@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func gotToGraphView(){
+    @objc func gotToGraphView(){
         self.performSegue(withIdentifier: "showGraph", sender: self)
     }
     

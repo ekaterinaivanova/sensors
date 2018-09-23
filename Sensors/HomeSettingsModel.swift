@@ -11,6 +11,7 @@
 import Foundation
 import UIKit
 import CoreMotion
+import Reachability
 
 public var LoginStatusChanged = "LoginStatusChanged"
 
@@ -24,10 +25,18 @@ class HomeSettingsModel:NSObject{
     var notificationCenter = NotificationCenter.default
     
     var reachable:Bool{
-        return ConnectionManager.sharedInstance.reachability!.isReachable
+        if ConnectionManager.sharedInstance.reachability?.connection == Reachability.Connection.none {
+           return false
+        } else {
+            return true
+        }
     }
     var celular:Bool{
-        return !ConnectionManager.sharedInstance.reachability!.isReachableViaWiFi
+        if ConnectionManager.sharedInstance.reachability?.connection == Reachability.Connection.wifi {
+            return false
+        } else {
+            return true
+        }
     }
     
     
@@ -95,36 +104,24 @@ class HomeSettingsModel:NSObject{
         
     func setConnectionData(){
         if reachable {
-            
             if !(celular) {
-                
                 dataRows[1] = "Connection WiFi"
-                
             } else {
-                
                 dataRows[1] = "Connection Cellular"
-                
             }
-            
         } else {
-            
             dataRows[1] = "Connection NO"
-            
         }
     }
     
-    func reachabilityChanged(_ note: Notification) {
-        
+    @objc func reachabilityChanged(_ note: Notification) {
         setConnectionData()
         notificationCenter.post(name: Notification.Name(rawValue: HomeModelChangedNotification), object:self)
-        
     }
     
-    func locationChanged(_ note:Notification){
-        
+    @objc func locationChanged(_ note:Notification){
         setupLocation()
         notificationCenter.post(name: Notification.Name(rawValue: HomeModelChangedNotification), object:self)
-        
     }
     
     deinit {
@@ -140,6 +137,7 @@ class HomeSettingsModel:NSObject{
         
         notificationCenter.addObserver(self, selector: #selector(HomeSettingsModel.locationChanged(_:)), name: NSNotification.Name(rawValue: LocationChangedNotification), object: nil)
         self.setupLocation()
+        self.setConnectionData()
         
     }
     

@@ -73,9 +73,9 @@ class ForgotPasswordTableViewController: UITableViewController, AccountTableView
     func displayAllertMessage(_ message:String){
         let okString =  NSLocalizedString("OK", tableName: "Localized", comment: "")
         let title = NSLocalizedString("New Password", tableName: "Localized", comment: "")
-        let lvAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let lvAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         
-        let lvOkAction = UIAlertAction(title: okString, style: UIAlertActionStyle.default, handler: {action in
+        let lvOkAction = UIAlertAction(title: okString, style: UIAlertAction.Style.default, handler: {action in
             //                self.popBackToPreviousViewController()
         })
         lvAlert.addAction(lvOkAction)
@@ -102,7 +102,7 @@ class ForgotPasswordTableViewController: UITableViewController, AccountTableView
         if let button = data["button"] as! Bool?{
             if button{
                 cell = tableView.dequeueReusableCell(withIdentifier: "idCellButton", for: indexPath) as! AccountTableViewCell
-                cell.accountButton.setTitle(data["label"] as! String?, for: UIControlState())
+                cell.accountButton.setTitle(data["label"] as! String?, for: UIControl.State())
                 
             }else{
                 cell = tableView.dequeueReusableCell(withIdentifier: "idCellTextFieldLabel", for: indexPath) as! AccountTableViewCell
@@ -122,7 +122,7 @@ class ForgotPasswordTableViewController: UITableViewController, AccountTableView
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         loopThroughCells()
-        self.tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableViewRowAnimation.fade)
+        self.tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableView.RowAnimation.fade)
         
     }
     

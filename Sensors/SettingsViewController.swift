@@ -194,7 +194,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
         getIndicesOfVisibleRows()
 
-        tblExpandable.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableViewRowAnimation.fade)
+        tblExpandable.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableView.RowAnimation.fade)
     }
     
     func getCellDescriptorForIndexPath(_ indexPath: IndexPath) -> [String: AnyObject] {
@@ -313,7 +313,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }

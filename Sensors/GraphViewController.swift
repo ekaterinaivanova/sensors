@@ -71,7 +71,7 @@ class GraphViewController: UIViewController {
                     self.sensorModel.sendingStatus = 1
                     let title = self.sensorModel.sendingText
 
-                    self.measurementButton.setTitle(title, for: UIControlState())
+                    self.measurementButton.setTitle(title, for: UIControl.State())
                     self.measurementButton.backgroundColor = self.sensorModel.backgroubdColor
                     if let data: NSDictionary = Result {
                         print(data)
@@ -84,8 +84,7 @@ class GraphViewController: UIViewController {
             self.sensorModel.sendingStatus = 0
             MeasurementClient().updateMeasurement { (status, result) in
                 DispatchQueue.main.async{[unowned self] in
-                    print(status, result ?? default [])
-                    self.measurementButton.setTitle(self.sensorModel.sendingText, for: UIControlState())
+                    self.measurementButton.setTitle(self.sensorModel.sendingText, for: UIControl.State())
                     self.measurementButton.backgroundColor = self.sensorModel.backgroubdColor
                 }
                 
@@ -152,10 +151,10 @@ class GraphViewController: UIViewController {
     
     func alert(message:String, actions:Array<((UIAlertAction) -> Void)>, titles: Array<String>){
         
-        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
         
         for (index, title) in titles.enumerated() {
-            alert.addAction(UIAlertAction(title: title, style: UIAlertActionStyle.default, handler: actions[index]))
+            alert.addAction(UIAlertAction(title: title, style: UIAlertAction.Style.default, handler: actions[index]))
         }
         self.present(alert, animated: true, completion: nil)
     }
@@ -310,7 +309,7 @@ class GraphViewController: UIViewController {
         motionKit.stopAccelerometerUpdates()
     }
     
-    func stopAllUpdates(){
+    @objc func stopAllUpdates(){
         stopDeviceMotionUpdates()
         stopRawAccelerationUpdates()
     }
@@ -318,14 +317,10 @@ class GraphViewController: UIViewController {
     func configureSegmentControl(){
         let sensors = sensorModel.getSensorsModel()
         var name = ""
-       
         for  i in 0 ... sensors.count - 1{
             name = sensorModel.getName(i)
-            sensorChangeSegmentControl.setTitle(name.substring(to: name.characters.index(name.startIndex, offsetBy: 3)), forSegmentAt: i)
-       
-        }
-      
-        
+            sensorChangeSegmentControl.setTitle(name[0...2], forSegmentAt: i)
+        }      
         sensorChangeSegmentControl.selectedSegmentIndex = selectedSensorToShow
         selectedSensorLabel.text = sensorModel.getName(selectedSensorToShow)
         selectedSensorLabel.font = bigFont
@@ -360,14 +355,14 @@ class GraphViewController: UIViewController {
     }
     
     func initButtons() -> Void {
-        measurementButton.setTitle(sensorModel.sendingText, for: UIControlState())
+        measurementButton.setTitle(sensorModel.sendingText, for: UIControl.State())
     }
 
     func initNavigationBar() {
         self.navigationItem.title = NSLocalizedString("Home", comment: "")
     }
     
-    func reloadSettingsTable(){
+    @objc func reloadSettingsTable(){
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -377,13 +372,13 @@ class GraphViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(GraphViewController.reloadSettingsTable), name: NSNotification.Name(rawValue: HomeModelChangedNotification), object: homeModel)
 
-        NotificationCenter.default.addObserver(self, selector:#selector(GraphViewController.stopAllUpdates), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(GraphViewController.stopAllUpdates), name: UIApplication.willTerminateNotification, object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(GraphViewController.appDidBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GraphViewController.appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     
     }
     
-    func appDidBecomeActive(){
+    @objc func appDidBecomeActive(){
         
 //        udpClientLocal = Client(type: 0)
         udpClientCloud = Client(type: 1)
@@ -422,8 +417,8 @@ extension GraphViewController: UITableViewDataSource {
         cell.dataLabel.text = homeModel.getDataInRows((indexPath as NSIndexPath).section, row: (indexPath as NSIndexPath).row)
         let fonts = homeModel.setFontOfRow(indexPath)
         if fonts[0] is UIFont && fonts[1] is UIColor{
-            cell.dataLabel.font = fonts[0] as! UIFont
-            cell.dataLabel.textColor = fonts[1] as! UIColor
+            cell.dataLabel.font = fonts[0] as? UIFont
+            cell.dataLabel.textColor = fonts[1] as? UIColor
         }
         cell.accessoryType = .none
         
@@ -456,7 +451,7 @@ extension GraphViewController: UITableViewDelegate {
             
         }
         
-        tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableViewRowAnimation.fade)
+        tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableView.RowAnimation.fade)
         
     }
     

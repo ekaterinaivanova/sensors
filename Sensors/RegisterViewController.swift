@@ -34,9 +34,9 @@ class RegisterViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let title = NSLocalizedString("Register", tableName: "Localized", comment: "")
 
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
             
-        let okAction = UIAlertAction(title: okString, style: UIAlertActionStyle.default, handler: {action in
+        let okAction = UIAlertAction(title: okString, style: UIAlertAction.Style.default, handler: {action in
             
             self.popBackToPreviousViewController()
             
@@ -52,7 +52,7 @@ class RegisterViewController: UIViewController, UITableViewDataSource, UITableVi
        
     }
     
-    func registerButtonTapped(){
+    @objc func registerButtonTapped(){
         
         loopThroughCells()
         registerModel.sendData { (result) -> Void in
@@ -89,7 +89,7 @@ class RegisterViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-    func showLoginView(){
+    @objc func showLoginView(){
         
         self.performSegue(withIdentifier: "showLogin", sender: self)
         
@@ -158,13 +158,13 @@ class RegisterViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "idCellTextFieldLabel", for: indexPath) as! AccountTableViewCell
         
         let data = registerModel.getData((indexPath as NSIndexPath).row)
-        cell.label.text = data["label"] as! String!
-        cell.textField.text = data["data"] as! String!
-        cell.textField.isSecureTextEntry = data["hidden"] as! Bool!
-        cell.textField.placeholder = data["label"] as! String!
+        cell.label.text = data["label"] as? String
+        cell.textField.text = data["data"] as? String
+        cell.textField.isSecureTextEntry = data["hidden"] as! Bool
+        cell.textField.placeholder = data["label"] as? String
         cell.textField.isUserInteractionEnabled = true
 //        print(cell.textLabel?.text,cell.textField.text)
-        if let emailKeyboard = data["keyboard"] as! Bool! {
+        if let emailKeyboard = data["keyboard"] as? Bool {
             if emailKeyboard {
                 cell.textField.keyboardType = UIKeyboardType.emailAddress
             }
@@ -182,7 +182,7 @@ class RegisterViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         loopThroughCells()
-        self.tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableViewRowAnimation.fade)
+        self.tableView.reloadSections(IndexSet(integer: (indexPath as NSIndexPath).section), with: UITableView.RowAnimation.fade)
         
     }
     

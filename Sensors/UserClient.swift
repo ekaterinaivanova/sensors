@@ -74,20 +74,14 @@ class UserClient{
     
     func deleteAcc(_ complition:@escaping (_ result:String)-> Void){
         let param = ["email":"\(GlobalVariables.email)", "pwd":GlobalVariables.password] as Dictionary<String, String>
-        api.delete(request: api.clientURLRequest(path: "users", params: param as? Dictionary<String, AnyObject>)) { (success, object) -> () in
+        api.delete(request: api.clientURLRequest(path: "users", params: param as Dictionary<String, AnyObject>)) { (success, object) -> () in
             DispatchQueue.main.async(execute: { () -> Void in
-                
                 if success {
                     complition("OK")
-                    
                 } else {
-                    //                    TODO HANDLE ERRORS
                     complition("NOK")
-                    
                 }
             })
         }
-        
     }
-    
 }

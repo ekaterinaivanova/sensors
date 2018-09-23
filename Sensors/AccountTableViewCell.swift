@@ -50,7 +50,7 @@ class AccountTableViewCell: UITableViewCell, UITextFieldDelegate {
         if accountButton != nil{
             accountButton.titleLabel?.font = bigFont
             accountButton.backgroundColor = UIColor.red
-            accountButton.setTitleColor(UIColor.white, for: UIControlState())
+            accountButton.setTitleColor(UIColor.white, for: UIControl.State())
         }
     }
 
