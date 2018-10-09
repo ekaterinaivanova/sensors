@@ -24,21 +24,16 @@ class UserClient{
     func login(user: NSDictionary, completion: @escaping (_ success: Bool, _ message: NSDictionary?) -> ()) {
         api.post(request: api.clientURLRequest(path: "user-login", params: user as? Dictionary<String, AnyObject>)) { (success, object) -> () in
             DispatchQueue.main.async(execute: { () -> Void in
-                
                 if success {
                     completion(success, object as? NSDictionary );
                     
                     if let resultDictionnary : NSDictionary = object as? NSDictionary {
-                        let readableStatus = resultDictionnary.object(forKey: "status") as! String
-                        if(readableStatus == "AOK"){
-
-                            GlobalVariables.loggedIn = true;
-                            
-                            GlobalVariables.loginID = Int(resultDictionnary.object(forKey: "LoginID") as! Int)
-                        }else{
-                            GlobalVariables.loggedIn = false;
-                        }
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: LoginStatusChanged), object:self)
+                        let loginID = resultDictionnary.object(forKey: "LoginID") as! Int
+                        GlobalVariables.loggedIn = true;
+                        GlobalVariables.loginID = loginID
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: LoginStatusChanged), object:self)
+                    } else {
+                        GlobalVariables.loggedIn = false;
                     }
                 } else {
                     //                    TODO HANDLE ERRORS
